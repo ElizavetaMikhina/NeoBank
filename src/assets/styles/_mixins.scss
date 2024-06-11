@@ -1,0 +1,39 @@
+@import '_variables';
+
+@mixin center-content {
+  max-width: $main-width;
+  margin: $horizontal-center;
+  padding: 0 15px;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin button-size-desktop {
+  max-width: 160px;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 18px;
+  border-radius: 16px;
+}
+
+@mixin button-size-mobile {
+  max-width: 140px;
+  line-height: 15px;
+  font-size: 14px;
+  padding: 12px;
+  border-radius: 12px;
+}

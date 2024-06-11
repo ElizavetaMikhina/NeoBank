@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wdth,YTLC@6..12,75..125,440..540&family=Rubik:wght@300..900&family=Ubuntu:wght@400;500;700&display=swap');
+
+// Миксины для шрифтов Ubuntu
+@mixin ubuntu-regular {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin ubuntu-medium {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin ubuntu-bold {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+// Миксины для шрифтов Rubik
+@mixin rubik-regular {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin rubik-medium {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+// Миксины для шрифтов Nunito Sans
+@mixin nunito-sans-regular {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

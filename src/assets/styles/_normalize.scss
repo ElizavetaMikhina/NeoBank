@@ -1,0 +1,25 @@
+@import '_variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+a {
+  color: $default-font-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

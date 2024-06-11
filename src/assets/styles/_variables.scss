@@ -1,0 +1,33 @@
+// Цвета
+// Бекграунды
+$background-color: #f5f4ff;
+$button-bg-color: #003cff;
+$accent-purple-bg-color: #686df1;
+$footer-bg-color: linear-gradient(
+    0deg,
+    rgba(178, 178, 178, 0.2),
+    rgba(178, 178, 178, 0.2)
+  ),
+  linear-gradient(0deg, #f4f4f4, #f4f4f4);
+
+// Тексты
+$logo-color: #b4387a;
+$default-font-color: #1d1929;
+$white-text-color: #ffffff;
+$gray-text-color: #808080;
+$lightgray-text-color: #9092b0;
+$darkgray-text-color: #2d3748;
+$orange-text-color: #eb801d;
+
+// Размеры
+$main-width: 1330px;
+
+// Отступы
+$horizontal-center: 0 auto;
+
+// Текст
+$line-height-50: 50px;
+$line-height-40: 40px;
+$line-height-30: 30px;
+$line-height-25: 25px;
+$line-height-20: 20px;
