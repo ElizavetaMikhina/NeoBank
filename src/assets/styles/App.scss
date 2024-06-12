@@ -78,10 +78,12 @@ body {
   }
 
   &__cards {
+    flex-shrink: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     max-width: 518px;
+    margin-left: 20px;
   }
 
   &__card {
@@ -107,6 +109,7 @@ body {
 
   &__description {
     max-width: 720px;
+    margin-left: 20px;
   }
 
   &__title {
@@ -394,6 +397,7 @@ body {
     &__cards {
       display: flex;
       max-width: 100%;
+      margin-left: 0;
     }
   }
 
@@ -581,22 +585,36 @@ body {
       &-list {
         display: none;
         flex-direction: column;
+        justify-content: start;
+        padding-top: 20px;
         position: absolute;
         top: 50px;
         right: 0;
         background-color: #fff;
+        opacity: 0;
+        height: 100vh;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 200px;
+        width: 150px;
         z-index: 10;
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
 
         &.open {
           display: flex;
+          opacity: 0.9;
+          transform: translateY(0);
         }
       }
 
       &-burger {
         display: block;
         margin-left: 85px;
+        transition: transform 0.5s ease;
+
+        &.open {
+          transform: rotate(-90deg);
+        }
       }
     }
 
@@ -661,6 +679,7 @@ body {
 
     &__description {
       order: 1;
+      margin-left: 0;
     }
 
     &__title {

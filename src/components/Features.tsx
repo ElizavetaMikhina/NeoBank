@@ -1,4 +1,20 @@
 import React from 'react'
+import FeatureList from './FeatureList'
+
+const featureItems = [
+  {
+    text: 'Powerful online protection'
+  },
+  {
+    text: 'Cashback without borders'
+  },
+  {
+    text: 'Personal design'
+  },
+  {
+    text: 'Work anywhere in the world'
+  }
+]
 
 const Features = () => {
   return (
@@ -16,32 +32,10 @@ const Features = () => {
           You can explore the features that we provide with fun and have their
           own functions each feature
         </p>
-        <ul className="features__items">
-          <li className="features__item">
-            <img
-              src="images/icons/green-check-mark.svg"
-              className="features__item-img"></img>
-            Powerfull online protection.
-          </li>
-          <li className="features__item">
-            <img
-              src="images/icons/green-check-mark.svg"
-              className="features__item-img"></img>
-            Cashback without borders.
-          </li>
-          <li className="features__item">
-            <img
-              src="images/icons/green-check-mark.svg"
-              className="features__item-img"></img>
-            Personal design
-          </li>
-          <li className="features__item">
-            <img
-              src="images/icons/green-check-mark.svg"
-              className="features__item-img"></img>
-            Work anywhere in the world
-          </li>
-        </ul>
+        <FeatureList
+          imgSrc="images/icons/green-check-mark.svg"
+          items={featureItems}
+        />
       </div>
     </section>
   )

@@ -15,7 +15,9 @@ const Navigation: React.FC<TNavigationProps> = ({ items, className }) => {
 
   return (
     <nav className={className}>
-      <button className={`${className}-burger`} onClick={toggleMenu}>
+      <button
+        className={`${className}-burger ${isMenuOpen ? 'open' : ''}`}
+        onClick={toggleMenu}>
         ☰
       </button>
       <ul className={`${className}-list ${isMenuOpen ? 'open' : ''}`}>

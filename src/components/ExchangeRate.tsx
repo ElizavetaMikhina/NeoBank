@@ -1,26 +1,13 @@
-import fetchCurrencyRate from '@utils/fetchCurrencyRate'
-import React, { useEffect, useState } from 'react'
+import { useFetchRates } from '@hooks/useFetchRates'
 
 const currencies = ['USD', 'CNY', 'CHF', 'EUR', 'JPY', 'TRY']
 
 const ExchangeRate = () => {
-  const [rates, setRates] = useState<{ [key: string]: number | string }>({})
+  const { rates, error } = useFetchRates(currencies)
 
-  useEffect(() => {
-    const getRates = async () => {
-      const fetchedRates: { [key: string]: number | string } = {}
-      for (const currency of currencies) {
-        const rate = await fetchCurrencyRate({ fromCurrency: currency })
-        if (typeof rate === 'number') {
-          fetchedRates[currency] = rate.toFixed(2)
-        } else {
-          fetchedRates[currency] = 'Ошибка'
-        }
-      }
-      setRates(fetchedRates)
-    }
-    getRates()
-  }, [])
+  if (error) {
+    return <div className="exchange-rate__error">{error}</div>
+  }
 
   return (
     <section className="exchange-rate">

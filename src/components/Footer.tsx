@@ -1,5 +1,6 @@
 import Navigation from '@components/ui/Navigation'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const navItems = [
@@ -21,11 +22,14 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__contact-info">
-          <img
-            src="/images/logo.png"
-            alt="NeoFlex logo"
-            className="footer__logo"
-          />
+          <Link to="/">
+            <img
+              src="/images/logo.png"
+              alt="NeoFlex logo"
+              className="footer__logo"
+            />
+          </Link>
+
           <div className="footer__contacts">
             <a href="tel:+74959842513" className="footer__tel">
               +7 (495) 984 25 13

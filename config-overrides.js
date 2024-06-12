@@ -9,7 +9,8 @@ module.exports = override(
         '@assets': './src/assets',
         '@components': './src/components',
         '@utils': './src/utils',
-        '@pages': './src/pages'
+        '@pages': './src/pages',
+        '@hooks': './src/hooks'
       }
     }
   ])
