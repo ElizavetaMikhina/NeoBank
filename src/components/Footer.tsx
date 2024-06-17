@@ -1,23 +1,8 @@
-import Navigation from '@components/ui/Navigation'
-import React from 'react'
+import { Navigation } from '@components/ui/Navigation'
+import { navItemsFooter } from 'constants/navItemsData'
 import { Link } from 'react-router-dom'
 
-const Footer = () => {
-  const navItems = [
-    { href: '#about', label: 'About bank' },
-    { href: '#question', label: 'Ask a Question' },
-    { href: '#quality', label: 'Quality of service' },
-    { href: '#requisites', label: 'Requisites' },
-    { href: '#press-center', label: 'Press center' },
-    { href: '#career', label: 'Bank career' },
-    { href: '#investors', label: 'Investors' },
-    { href: '#analytics', label: 'Analytics' },
-    { href: '#business-and-processes', label: 'Business and processes' },
-    {
-      href: '#compliance',
-      label: 'Compliance and business ethics'
-    }
-  ]
+export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__content">
@@ -39,7 +24,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <Navigation items={navItems} className="footer__nav" />
+        <Navigation items={navItemsFooter} className="footer__nav" />
 
         <div className="footer__cookies-info">
           We use cookies to personalize our services and improve the user
@@ -51,5 +36,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

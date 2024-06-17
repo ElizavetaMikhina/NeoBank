@@ -1,12 +1,12 @@
-import CardSelection from '@components/CardSelection'
-import Button from '@components/ui/Button/Button'
+import { CardSelection } from '@components/CardSelection'
+import { Button } from '@components/ui/Button/Button'
 import React from 'react'
 
 type THeroProps = {
   className?: string
 }
 
-const Hero: React.FC<THeroProps> = () => {
+export const Hero: React.FC<THeroProps> = () => {
   return (
     <section className="hero">
       <div className="hero__description">
@@ -19,5 +19,3 @@ const Hero: React.FC<THeroProps> = () => {
     </section>
   )
 }
-
-export default Hero

@@ -1,10 +1,10 @@
-import ExchangeRate from '@components/ExchangeRate'
-import Features from '@components/Features'
-import GlobalServices from '@components/GlobalServices'
-import Hero from '@components/Hero'
-import Subscribe from '@components/Subscribe'
+import { ExchangeRate } from '@components/ExchangeRate'
+import { Features } from '@components/Features'
+import { GlobalServices } from '@components/GlobalServices'
+import { Hero } from '@components/Hero'
+import { Subscribe } from '@components/Subscribe'
 
-const Main = () => {
+export const Main = () => {
   return (
     <>
       <Hero />
@@ -15,5 +15,3 @@ const Main = () => {
     </>
   )
 }
-
-export default Main

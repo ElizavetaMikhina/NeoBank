@@ -1,4 +1,4 @@
-import NavItem from '@components/ui/NavItem'
+import { NavItem } from '@components/ui/NavItem'
 import React, { useState } from 'react'
 
 type TNavigationProps = {
@@ -6,7 +6,10 @@ type TNavigationProps = {
   className?: string
 }
 
-const Navigation: React.FC<TNavigationProps> = ({ items, className }) => {
+export const Navigation: React.FC<TNavigationProps> = ({
+  items,
+  className
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -21,11 +24,11 @@ const Navigation: React.FC<TNavigationProps> = ({ items, className }) => {
         ☰
       </button>
       <ul className={`${className}-list ${isMenuOpen ? 'open' : ''}`}>
-        {items.map((item, index) => (
+        {items.map(({ href, label }, index) => (
           <NavItem
             key={index}
-            href={item.href}
-            label={item.label}
+            href={href}
+            label={label}
             className={className}
           />
         ))}
@@ -33,5 +36,3 @@ const Navigation: React.FC<TNavigationProps> = ({ items, className }) => {
     </nav>
   )
 }
-
-export default Navigation

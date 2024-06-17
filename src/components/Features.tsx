@@ -1,22 +1,7 @@
-import React from 'react'
-import FeatureList from './FeatureList'
+import { featureItems } from 'constants/featureData'
+import { FeatureList } from './FeatureList'
 
-const featureItems = [
-  {
-    text: 'Powerful online protection'
-  },
-  {
-    text: 'Cashback without borders'
-  },
-  {
-    text: 'Personal design'
-  },
-  {
-    text: 'Work anywhere in the world'
-  }
-]
-
-const Features = () => {
+export const Features = () => {
   return (
     <section className="features">
       <img
@@ -40,5 +25,3 @@ const Features = () => {
     </section>
   )
 }
-
-export default Features

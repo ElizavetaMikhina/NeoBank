@@ -6,10 +6,8 @@ type TButtonProps = {
   className?: string
 }
 
-const Button: React.FC<TButtonProps> = ({ buttonText, className }) => {
+export const Button: React.FC<TButtonProps> = ({ buttonText, className }) => {
   return (
     <button className={`${className} ${styles.botton}`}>{buttonText}</button>
   )
 }
-
-export default Button

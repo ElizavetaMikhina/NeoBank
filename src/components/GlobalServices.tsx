@@ -1,6 +1,4 @@
-import React from 'react'
-
-const GlobalServices = () => {
+export const GlobalServices = () => {
   return (
     <section className="global-services">
       <div className="global-services__content">
@@ -21,5 +19,3 @@ const GlobalServices = () => {
     </section>
   )
 }
-
-export default GlobalServices

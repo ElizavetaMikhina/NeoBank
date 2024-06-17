@@ -108,10 +108,12 @@ body {
   border-radius: 16px;
 }
 .hero__cards {
+  flex-shrink: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   max-width: 518px;
+  margin-left: 20px;
 }
 .hero__card {
   display: flex;
@@ -134,6 +136,7 @@ body {
 }
 .features__description {
   max-width: 720px;
+  margin-left: 20px;
 }
 .features__title {
   font-family: "Rubik", sans-serif;
@@ -411,6 +414,7 @@ body {
   .hero__cards {
     display: flex;
     max-width: 100%;
+    margin-left: 0;
   }
   .features__image {
     max-width: 380px;
@@ -555,20 +559,31 @@ body {
   .header__nav-list {
     display: none;
     flex-direction: column;
+    justify-content: start;
+    padding-top: 20px;
     position: absolute;
     top: 50px;
     right: 0;
     background-color: #fff;
+    opacity: 0;
+    height: 100vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
+    width: 150px;
     z-index: 10;
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
   .header__nav-list.open {
     display: flex;
+    opacity: 0.9;
+    transform: translateY(0);
   }
   .header__nav-burger {
     display: block;
     margin-left: 85px;
+    transition: transform 0.5s ease;
+  }
+  .header__nav-burger.open {
+    transform: rotate(-90deg);
   }
   .header__button {
     order: 2;
@@ -625,6 +640,7 @@ body {
   }
   .features__description {
     order: 1;
+    margin-left: 0;
   }
   .features__title {
     font-size: 28px;

@@ -5,7 +5,7 @@ type FeatureItemProps = {
   text: string
 }
 
-const FeatureItem: React.FC<FeatureItemProps> = ({ imgSrc, text }) => {
+export const FeatureItem: React.FC<FeatureItemProps> = ({ imgSrc, text }) => {
   return (
     <li className="features__item">
       <img src={imgSrc} alt="Feature icon" className="features__item-img" />
@@ -13,5 +13,3 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ imgSrc, text }) => {
     </li>
   )
 }
-
-export default FeatureItem

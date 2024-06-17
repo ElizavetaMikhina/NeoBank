@@ -5,12 +5,10 @@ type TLogoProps = {
   className?: string
 }
 
-const Logo: React.FC<TLogoProps> = ({ className }) => {
+export const Logo: React.FC<TLogoProps> = ({ className }) => {
   return (
     <Link to="/" className={`${className}`}>
       NeoBank
     </Link>
   )
 }
-
-export default Logo

@@ -1,6 +1,6 @@
 import { useForm } from '@hooks/useForm'
 
-const Subscribe = () => {
+export const Subscribe = () => {
   const { email, submitted, error, handleSubmit, handleChange, clearError } =
     useForm()
 
@@ -51,5 +51,3 @@ const Subscribe = () => {
     </section>
   )
 }
-
-export default Subscribe

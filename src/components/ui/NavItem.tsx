@@ -6,7 +6,11 @@ type TNavItemProps = {
   className?: string
 }
 
-const NavItem: React.FC<TNavItemProps> = ({ href, label, className }) => {
+export const NavItem: React.FC<TNavItemProps> = ({
+  href,
+  label,
+  className
+}) => {
   return (
     <li className={`${className}-item`}>
       <a href={href}>{label}</a>
@@ -14,5 +18,3 @@ const NavItem: React.FC<TNavItemProps> = ({ href, label, className }) => {
     </li>
   )
 }
-
-export default NavItem
