@@ -227,7 +227,133 @@ body {
   }
 
   &__map-image {
-    max-width: 100%;
+    max-width: 80%;
+  }
+}
+
+.news-feed {
+  @include ubuntu-medium;
+  text-align: center;
+  margin-bottom: 65px;
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 30px;
+    line-height: $line-height-50;
+  }
+
+  &__description {
+    line-height: $line-height-50;
+    font-size: 16px;
+  }
+
+  &__slider {
+    display: flex;
+    max-height: 542px;
+    padding: 47px 5px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 500px;
+    margin-right: 80px;
+    max-width: 320px;
+    height: 448px;
+    padding: 32px;
+    background-color: $white-background-color;
+    border-radius: 28px;
+    box-shadow:
+      0px 2px 4px 0px #00000033,
+      0px 0px 8px 0px #00000014;
+    border: 1px solid #ededed;
+    overflow-y: hidden;
+
+    &-image {
+      min-width: 100%;
+      max-height: 120px;
+      object-fit: cover;
+      margin-bottom: 32px;
+    }
+
+    &-text-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    &-title {
+      font-size: 20px;
+      line-height: $line-height-25;
+    }
+
+    &-description {
+      font-size: 16px;
+      line-height: 23px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__slide:last-child {
+    margin-right: 0px;
+  }
+
+  &__button {
+    &-wrapper {
+      display: flex;
+      justify-content: end;
+    }
+
+    &-controls {
+      display: flex;
+      gap: 20px;
+      max-width: 148px;
+    }
+
+    &-control {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &-icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+
+      &:not(:disabled) {
+        background-color: #003cff;
+        color: white;
+
+        &:hover {
+          background-color: #2054ff;
+        }
+      }
+
+      &:disabled {
+        background-color: $white-background-color;
+        border: 1px solid #003cff;
+        cursor: not-allowed;
+        color: black;
+      }
+    }
   }
 }
 
@@ -467,7 +593,7 @@ body {
 
   .global-services {
     line-height: $line-height-40;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 
     &__title {
       margin-bottom: 6px;
@@ -477,6 +603,49 @@ body {
     &__description {
       margin-bottom: 35px;
       font-size: 14px;
+    }
+  }
+
+  .news-feed {
+    margin-bottom: 0;
+
+    &__title {
+      font-size: 26px;
+      line-height: $line-height-40;
+    }
+
+    &__description {
+      line-height: $line-height-40;
+      font-size: 14px;
+    }
+
+    &__slider {
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
+
+    &__slide {
+      margin-right: 60px;
+      max-width: 300px;
+      padding: 28px;
+
+      &-image {
+        margin-bottom: 28px;
+      }
+
+      &-title {
+        font-size: 18px;
+      }
+
+      &-description {
+        font-size: 14px;
+      }
+    }
+
+    &__button {
+      &-wrapper {
+        display: none;
+      }
     }
   }
 
@@ -752,6 +921,41 @@ body {
     &__description {
       line-height: $line-height-20;
       margin-bottom: 20px;
+    }
+  }
+
+  .news-feed {
+    &__title {
+      line-height: $line-height-30;
+    }
+
+    &__description {
+      line-height: $line-height-30;
+    }
+
+    &__slider {
+      padding-top: 25px;
+    }
+
+    &__slide {
+      margin-right: 40px;
+      max-width: 250px;
+      max-height: 380px;
+      padding: 26px;
+
+      &-image {
+        margin-bottom: 26px;
+      }
+
+      &-title {
+        font-size: 16px;
+        line-height: $line-height-20;
+      }
+
+      &-description {
+        font-size: 14px;
+        line-height: $line-height-20;
+      }
     }
   }
 

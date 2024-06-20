@@ -1,7 +1,6 @@
-import fetchCurrencyRate from '@utils/fetchCurrencyRate'
+import { fetchCurrencyRate } from '@utils/fetchCurrencyRate'
 import { useCallback, useEffect, useState } from 'react'
-
-type Rates = { [key: string]: number | string }
+import { Rates } from 'types/types'
 
 export const useFetchRates = (currencies: string[]) => {
   const [rates, setRates] = useState<Rates>({})

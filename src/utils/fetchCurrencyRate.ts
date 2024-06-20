@@ -1,25 +1,22 @@
 import axios from 'axios'
-import { API_KEY, API_URL, API_HOST } from '../constants'
+import {
+  CURRENCY_API_KEY,
+  CURRENCY_API_URL,
+  CURRENCY_API_HOST
+} from '../constants'
+import { FetchCurrencyRateParams, FetchCurrencyRateResponse } from 'types/types'
 
-type FetchCurrencyRateParams = {
-  fromCurrency: string
-  toCurrency?: string
-  amount?: string
-}
-
-type FetchCurrencyRateResponse = number | { error: string }
-
-const fetchCurrencyRate = async ({
+export const fetchCurrencyRate = async ({
   fromCurrency,
   toCurrency = 'RUB',
   amount = '1.0'
 }: FetchCurrencyRateParams): Promise<FetchCurrencyRateResponse> => {
   try {
-    const response = await axios.get(API_URL, {
+    const response = await axios.get(CURRENCY_API_URL, {
       params: { to: toCurrency, from: fromCurrency, q: amount },
       headers: {
-        'x-rapidapi-key': API_KEY,
-        'x-rapidapi-host': API_HOST
+        'x-rapidapi-key': CURRENCY_API_KEY,
+        'x-rapidapi-host': CURRENCY_API_HOST
       }
     })
     return response.data
@@ -32,5 +29,3 @@ const fetchCurrencyRate = async ({
     }
   }
 }
-
-export default fetchCurrencyRate

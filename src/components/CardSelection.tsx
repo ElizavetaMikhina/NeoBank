@@ -1,8 +1,6 @@
-import { cards } from 'constants/cardData'
+import { cards } from 'data/cardData'
 import React from 'react'
-type TCardsSelectionsProps = {
-  className?: string
-}
+import { TCardsSelectionsProps } from 'types/types'
 
 export const CardSelection: React.FC<TCardsSelectionsProps> = ({
   className

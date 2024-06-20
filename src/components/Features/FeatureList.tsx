@@ -1,14 +1,6 @@
 import React from 'react'
 import { FeatureItem } from './FeatureItem'
-
-type FeatureItemProps = {
-  text: string
-}
-
-type FeatureListProps = {
-  imgSrc: string
-  items: FeatureItemProps[]
-}
+import { FeatureListProps } from 'types/types'
 
 export const FeatureList: React.FC<FeatureListProps> = ({ imgSrc, items }) => {
   return (

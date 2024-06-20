@@ -1,7 +1,7 @@
 import { Button } from '@components/ui/Button/Button'
 import { Logo } from '@components/ui/Logo'
 import { Navigation } from '@components/ui/Navigation'
-import { navItemsHeader } from 'constants/navItemsData'
+import { navItemsHeader } from 'data/navItemsData'
 
 export const Header = () => {
   return (

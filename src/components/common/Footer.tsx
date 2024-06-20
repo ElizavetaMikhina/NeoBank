@@ -1,5 +1,5 @@
 import { Navigation } from '@components/ui/Navigation'
-import { navItemsFooter } from 'constants/navItemsData'
+import { navItemsFooter } from 'data/navItemsData'
 import { Link } from 'react-router-dom'
 
 export const Footer = () => {

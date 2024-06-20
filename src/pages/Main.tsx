@@ -1,7 +1,8 @@
 import { ExchangeRate } from '@components/ExchangeRate'
-import { Features } from '@components/Features'
+import { Features } from '@components/Features/Features'
 import { GlobalServices } from '@components/GlobalServices'
 import { Hero } from '@components/Hero'
+import { NewsFeed } from '@components/NewsFeed/NewsFeed'
 import { Subscribe } from '@components/Subscribe'
 
 export const Main = () => {
@@ -11,6 +12,7 @@ export const Main = () => {
       <Features />
       <ExchangeRate />
       <GlobalServices />
+      <NewsFeed />
       <Subscribe />
     </>
   )

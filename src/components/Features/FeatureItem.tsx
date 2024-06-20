@@ -1,9 +1,5 @@
 import React from 'react'
-
-type FeatureItemProps = {
-  imgSrc: string
-  text: string
-}
+import { FeatureItemProps } from 'types/types'
 
 export const FeatureItem: React.FC<FeatureItemProps> = ({ imgSrc, text }) => {
   return (

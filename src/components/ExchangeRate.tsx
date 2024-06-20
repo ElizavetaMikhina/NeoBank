@@ -1,20 +1,11 @@
 import { useFetchRates } from '@hooks/useFetchRates'
-import { currencies } from 'constants/commonData'
+import { currencies } from 'data/commonData'
 import React from 'react'
-import { ErrorLayout } from './ErrorLayout'
-
-type Rates = { [key: string]: number | string }
-type FetchRatesResult = {
-  rates: Rates
-  error: string | null
-}
+import { ErrorLayout } from '@components/common/ErrorLayout'
+import { FetchRatesResult } from 'types/types'
 
 export const ExchangeRate: React.FC = () => {
   const { rates, error }: FetchRatesResult = useFetchRates(currencies)
-
-  if (error) {
-    return <div className="exchange-rate__error">{error}</div>
-  }
 
   return (
     <ErrorLayout isError={!!error}>

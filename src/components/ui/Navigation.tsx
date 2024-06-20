@@ -1,10 +1,6 @@
 import { NavItem } from '@components/ui/NavItem'
 import React, { useState } from 'react'
-
-type TNavigationProps = {
-  items: { href: string; label: string }[]
-  className?: string
-}
+import { TNavigationProps } from 'types/types'
 
 export const Navigation: React.FC<TNavigationProps> = ({
   items,
