@@ -2,15 +2,22 @@ import axios from 'axios'
 import { CACHE_KEY, NEWS_API_KEY, NEWS_API_URL } from '../constants'
 import { ApiNewsArticle, FetchNewsArticleParams } from 'types/types'
 
+const CACHE_EXPIRATION_TIME = 15 * 60 * 1000
+
 export const fetchNews = async (
   pageSize: number = 40
 ): Promise<FetchNewsArticleParams[]> => {
   try {
-    let cachedArticles = sessionStorage.getItem(CACHE_KEY)
+    const cachedData = sessionStorage.getItem(CACHE_KEY)
 
-    if (cachedArticles) {
-      console.log('Fetching news from cache...')
-      return JSON.parse(cachedArticles)
+    if (cachedData) {
+      const { articles, timestamp } = JSON.parse(cachedData)
+      const timeElapsed = Date.now() - timestamp
+
+      if (timeElapsed < CACHE_EXPIRATION_TIME) {
+        console.log('Fetching news from cache...')
+        return articles
+      }
     }
 
     console.log('Fetching news from API...')
@@ -42,7 +49,13 @@ export const fetchNews = async (
       )
       .slice(0, pageSize)
 
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify(filteredArticles))
+    sessionStorage.setItem(
+      CACHE_KEY,
+      JSON.stringify({
+        articles: filteredArticles,
+        timestamp: Date.now()
+      })
+    )
 
     return filteredArticles
   } catch (error) {

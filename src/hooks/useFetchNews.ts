@@ -13,7 +13,6 @@ export const useFetchNews = (pageSize?: number) => {
         const data = await fetchNews(pageSize)
         setNews(data)
         setLoading(false)
-        localStorage.setItem('lastUpdate', Date.now().toString())
       } catch (error) {
         setError('Failed to fetch news')
         setLoading(false)

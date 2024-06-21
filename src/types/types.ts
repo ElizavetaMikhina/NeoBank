@@ -55,9 +55,6 @@ export type TButtonProps = {
 export type ButtonControlsProps = {
   className?: string
   sliderRef: React.RefObject<HTMLDivElement>
-  currentIndex: number
-  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>
-  maxIndex: number
 }
 
 export type TLogoProps = {

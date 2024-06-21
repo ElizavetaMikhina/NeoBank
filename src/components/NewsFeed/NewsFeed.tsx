@@ -1,13 +1,12 @@
 import { useFetchNews } from '@hooks/useFetchNews'
 import { NewsCard } from './NewsCard'
 import { ErrorLayout } from '@components/common/ErrorLayout'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { ButtonControls } from '@components/ui/ButtonControls'
 
 export const NewsFeed = () => {
   const { news, loading, error } = useFetchNews()
   const sliderRef = useRef<HTMLDivElement>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
 
   if (loading) {
     return <p>Loading...</p>
@@ -29,13 +28,7 @@ export const NewsFeed = () => {
           ))}
         </div>
         <div className="news-feed__button-wrapper">
-          <ButtonControls
-            sliderRef={sliderRef}
-            currentIndex={currentIndex}
-            setCurrentIndex={setCurrentIndex}
-            maxIndex={news.length - 1}
-            className="news-feed"
-          />
+          <ButtonControls sliderRef={sliderRef} className="news-feed" />
         </div>
       </section>
     </ErrorLayout>
