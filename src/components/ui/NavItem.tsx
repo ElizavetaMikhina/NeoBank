@@ -1,5 +1,10 @@
 import React from 'react'
-import { TNavItemProps } from 'types/types'
+
+type TNavItemProps = {
+  href: string
+  label: string
+  className?: string
+}
 
 export const NavItem: React.FC<TNavItemProps> = ({
   href,

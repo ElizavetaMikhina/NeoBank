@@ -1,6 +1,10 @@
 import { NavItem } from '@components/ui/NavItem'
 import React, { useState } from 'react'
-import { TNavigationProps } from 'types/types'
+
+type TNavigationProps = {
+  items: { href: string; label: string }[]
+  className?: string
+}
 
 export const Navigation: React.FC<TNavigationProps> = ({
   items,
@@ -12,14 +16,16 @@ export const Navigation: React.FC<TNavigationProps> = ({
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const menuOpen = isMenuOpen ? 'open' : ''
+
   return (
     <nav className={className}>
       <button
-        className={`${className}-burger ${isMenuOpen ? 'open' : ''}`}
+        className={`${className}-burger ${menuOpen}`}
         onClick={toggleMenu}>
         ☰
       </button>
-      <ul className={`${className}-list ${isMenuOpen ? 'open' : ''}`}>
+      <ul className={`${className}-list ${menuOpen}`}>
         {items.map(({ href, label }, index) => (
           <NavItem
             key={index}

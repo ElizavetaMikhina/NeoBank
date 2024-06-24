@@ -1,6 +1,10 @@
 import React from 'react'
 import styles from './Button.module.scss'
-import { TButtonProps } from 'types/types'
+
+type TButtonProps = {
+  buttonText: string
+  className?: string
+}
 
 export const Button: React.FC<TButtonProps> = ({ buttonText, className }) => {
   return (

@@ -294,6 +294,11 @@ body {
     &-title {
       font-size: 20px;
       line-height: $line-height-25;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
     }
 
     &-description {

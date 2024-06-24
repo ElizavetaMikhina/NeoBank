@@ -4,7 +4,13 @@ import {
   CURRENCY_API_URL,
   CURRENCY_API_HOST
 } from '../constants'
-import { FetchCurrencyRateParams, FetchCurrencyRateResponse } from 'types/types'
+
+type FetchCurrencyRateResponse = number | { error: string }
+type FetchCurrencyRateParams = {
+  fromCurrency: string
+  toCurrency?: string
+  amount?: string
+}
 
 export const fetchCurrencyRate = async ({
   fromCurrency,

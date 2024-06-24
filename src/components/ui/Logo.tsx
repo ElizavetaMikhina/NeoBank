@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { TLogoProps } from 'types/types'
+
+type TLogoProps = {
+  className?: string
+}
 
 export const Logo: React.FC<TLogoProps> = ({ className }) => {
   return (

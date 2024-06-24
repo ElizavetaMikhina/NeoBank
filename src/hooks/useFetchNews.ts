@@ -1,6 +1,12 @@
 import { fetchNews } from '@utils/fetchNews'
 import { useEffect, useState } from 'react'
-import { NewsArticle } from 'types/types'
+
+type NewsArticle = {
+  urlToImage: string
+  title: string
+  url: string
+  description: string
+}
 
 export const useFetchNews = (pageSize?: number) => {
   const [news, setNews] = useState<NewsArticle[]>([])

@@ -1,8 +1,13 @@
 import React from 'react'
 import { FeatureItem } from './FeatureItem'
-import { FeatureListProps } from 'types/types'
+import { TFeatureItemProps } from 'types/TFeatureItemProps'
 
-export const FeatureList: React.FC<FeatureListProps> = ({ imgSrc, items }) => {
+type TFeatureListProps = {
+  imgSrc: string
+  items: TFeatureItemProps[]
+}
+
+export const FeatureList: React.FC<TFeatureListProps> = ({ imgSrc, items }) => {
   return (
     <ul className="features__items">
       {items.map(({ text }, index) => (

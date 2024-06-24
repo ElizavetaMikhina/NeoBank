@@ -1,7 +1,10 @@
 import { CardSelection } from '@components/CardSelection'
 import { Button } from '@components/ui/Button/Button'
 import React from 'react'
-import { THeroProps } from 'types/types'
+
+type THeroProps = {
+  className?: string
+}
 
 export const Hero: React.FC<THeroProps> = () => {
   return (

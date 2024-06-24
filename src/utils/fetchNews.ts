@@ -1,12 +1,36 @@
 import axios from 'axios'
 import { CACHE_KEY, NEWS_API_KEY, NEWS_API_URL } from '../constants'
-import { ApiNewsArticle, FetchNewsArticleParams } from 'types/types'
+import { TFetchNewsArticleParams } from 'types/FetchNewsArticleParams'
+
+type ApiNewsArticle = {
+  source: {
+    id: string | null
+    name: string
+  }
+  author: string | null
+  title: string
+  description: string | null
+  url: string
+  urlToImage: string | null
+  publishedAt: string
+  content: string | null
+}
 
 const CACHE_EXPIRATION_TIME = 15 * 60 * 1000
 
+const isValidImageUrl = (url: string | null): boolean => {
+  if (!url) return false
+  try {
+    new URL(url)
+    return true
+  } catch {
+    return false
+  }
+}
+
 export const fetchNews = async (
   pageSize: number = 40
-): Promise<FetchNewsArticleParams[]> => {
+): Promise<TFetchNewsArticleParams[]> => {
   try {
     const cachedData = sessionStorage.getItem(CACHE_KEY)
 
@@ -30,24 +54,14 @@ export const fetchNews = async (
       }
     })
 
-    const isValidUrl = (url: string) => {
-      try {
-        new URL(url)
-        return true
-      } catch {
-        return false
-      }
-    }
-
-    const filteredArticles: FetchNewsArticleParams[] = response.data.articles
-      .filter(
+    const filteredArticles: TFetchNewsArticleParams[] =
+      response.data.articles.filter(
         (article: ApiNewsArticle) =>
           article.urlToImage &&
           article.description &&
           !article.description.includes('<') &&
-          isValidUrl(article.urlToImage)
+          isValidImageUrl(article.urlToImage)
       )
-      .slice(0, pageSize)
 
     sessionStorage.setItem(
       CACHE_KEY,
@@ -57,7 +71,7 @@ export const fetchNews = async (
       })
     )
 
-    return filteredArticles
+    return filteredArticles.slice(0, pageSize)
   } catch (error) {
     console.error('Error fetching news:', error)
     throw new Error('Failed to fetch news')

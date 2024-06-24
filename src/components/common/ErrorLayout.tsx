@@ -1,5 +1,9 @@
-import React from 'react'
-import { ErrorLayoutProps } from 'types/types'
+import React, { ReactNode } from 'react'
+
+export type TErrorLayoutProps = {
+  isError: boolean
+  children: ReactNode
+}
 
 const TechnicalError: React.FC = () => (
   <div className="error">
@@ -7,7 +11,7 @@ const TechnicalError: React.FC = () => (
   </div>
 )
 
-export const ErrorLayout: React.FC<ErrorLayoutProps> = ({
+export const ErrorLayout: React.FC<TErrorLayoutProps> = ({
   isError,
   children
 }) => {

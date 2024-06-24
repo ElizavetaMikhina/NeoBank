@@ -1,5 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { ButtonControlsProps } from 'types/types'
+
+type ButtonControlsProps = {
+  className?: string
+  sliderRef: React.RefObject<HTMLDivElement>
+}
+
+const preloadImages = [
+  'images/icons/arrow-prev.svg',
+  'images/icons/arrow-prev-disabled.svg',
+  'images/icons/arrow-next.svg',
+  'images/icons/arrow-next-disabled.svg'
+]
 
 export const ButtonControls: React.FC<ButtonControlsProps> = ({
   className,
@@ -52,13 +63,6 @@ export const ButtonControls: React.FC<ButtonControlsProps> = ({
   }, [sliderRef])
 
   useEffect(() => {
-    const preloadImages = [
-      'images/icons/arrow-prev.svg',
-      'images/icons/arrow-prev-disabled.svg',
-      'images/icons/arrow-next.svg',
-      'images/icons/arrow-next-disabled.svg'
-    ]
-
     preloadImages.forEach((src) => {
       const img = new Image()
       img.src = src
@@ -66,15 +70,7 @@ export const ButtonControls: React.FC<ButtonControlsProps> = ({
   }, [])
 
   const getButtonIcon = (isDisabled: boolean, direction: 'prev' | 'next') => {
-    if (direction === 'prev') {
-      return isDisabled
-        ? 'images/icons/arrow-prev-disabled.svg'
-        : 'images/icons/arrow-prev.svg'
-    } else {
-      return isDisabled
-        ? 'images/icons/arrow-next-disabled.svg'
-        : 'images/icons/arrow-next.svg'
-    }
+    return `images/icons/arrow-${direction}${isDisabled ? '-disabled' : ''}.svg`
   }
 
   return (
