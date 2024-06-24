@@ -1,0 +1,28 @@
+{
+  "subscribers": [
+    {
+      "id": "1",
+      "email": "example1@example.com"
+    },
+    {
+      "id": "2",
+      "email": "example2@example.com"
+    },
+    {
+      "id": "d8ec",
+      "email": "test1010@gmail.com"
+    },
+    {
+      "id": "196a",
+      "email": "elisaveta.mihina@yandex.ru"
+    },
+    {
+      "id": "9a34",
+      "email": "test1010@gmail.com"
+    },
+    {
+      "id": "b4cb",
+      "email": "qqq@qqq.qqq"
+    }
+  ]
+}
