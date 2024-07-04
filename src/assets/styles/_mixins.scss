@@ -16,6 +16,11 @@
   justify-content: space-between;
 }
 
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin absolute-center {
   position: absolute;
   top: 50%;
@@ -27,7 +32,17 @@
   padding: 16px;
   font-size: 16px;
   line-height: 18px;
+  letter-spacing: 0.02;
   border-radius: 16px;
+}
+
+@mixin button-size-desktop-loan {
+  max-width: 145px;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.02;
+  border-radius: 8px;
 }
 
 @mixin button-size-mobile {
@@ -36,4 +51,17 @@
   font-size: 14px;
   padding: 12px;
   border-radius: 12px;
+}
+
+@mixin flex-wrap-gap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+@mixin element-shadow-border-radius {
+  box-shadow:
+    0px 2px 4px 0px #00000033,
+    0px 0px 8px 0px #00000014;
+  border-radius: 28px;
 }

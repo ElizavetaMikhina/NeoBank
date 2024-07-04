@@ -6,4 +6,14 @@
   background-color: $button-bg-color;
   color: $white-text-color;
   text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $button-bg-color--hover;
+  }
+
+  &:disabled {
+    background-color: $button-bg-color--hover;
+    cursor: not-allowed;
+  }
 }

@@ -6,4 +6,12 @@
   background-color: #003cff;
   color: #ffffff;
   text-align: center;
+  cursor: pointer;
+}
+.botton:hover {
+  background-color: #7796c0;
+}
+.botton:disabled {
+  background-color: #7796c0;
+  cursor: not-allowed;
 }/*# sourceMappingURL=Button.module.css.map */

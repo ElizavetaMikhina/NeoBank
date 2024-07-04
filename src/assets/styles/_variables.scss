@@ -1,7 +1,6 @@
 // Цвета
 // Бекграунды
 $background-color: #f5f4ff;
-$button-bg-color: #003cff;
 $accent-purple-bg-color: #686df1;
 $footer-bg-color: linear-gradient(
     0deg,
@@ -10,8 +9,24 @@ $footer-bg-color: linear-gradient(
   ),
   linear-gradient(0deg, #f4f4f4, #f4f4f4);
 $white-background-color: #ffffff;
+$steps-number-background: #d9d9d9;
+$about-card-bg-color-even: rgba(127, 146, 172, 0.7);
+$about-card-bg-color-odd: #eaecee;
+$cashback-card-bg-color-even: #88b3b899;
+$cashback-card-bg-color-odd: #eaecee;
+$tooltip-bg-color: #3d3d3d;
+$credit-card-bg: linear-gradient(
+  180.8deg,
+  rgba(203, 213, 224, 0.624) 34.33%,
+  rgba(254, 235, 200, 0.56) 64.27%
+);
+
+// Кнопки
+$button-bg-color: #003cff;
+$button-bg-color--hover: #7796c0;
 
 // Тексты
+// Цвета текста
 $logo-color: #b4387a;
 $default-font-color: #1d1929;
 $white-text-color: #ffffff;
@@ -19,16 +34,37 @@ $gray-text-color: #808080;
 $lightgray-text-color: #9092b0;
 $darkgray-text-color: #2d3748;
 $orange-text-color: #eb801d;
+$nav-item--active: #b2a35f;
+$credit-card-text-color: #2d3748;
+$card-feature-nav: #7b7454;
+$cashback-card-text-color: #434343e5;
+
+// Размеры текста
+$title-font-size: 30px;
+$content-font-size: 16px;
+$large-title-font-size: 48px;
 
 // Размеры
 $main-width: 1330px;
 
 // Отступы
 $horizontal-center: 0 auto;
+$standard-margin-bottom: 32px;
+$section-margin-bottom: 48px;
+$standard-padding: 32px;
+$standard-gap: 32px;
 
-// Текст
+// Параметры текста
 $line-height-50: 50px;
+$title-line-height: 44px;
 $line-height-40: 40px;
 $line-height-30: 30px;
 $line-height-25: 25px;
+$content-line-height: 24px;
 $line-height-20: 20px;
+
+$letter-spacing-slight: 0.02em;
+
+// Рамки
+$amount-border: #5b35d5;
+$card-feature-nav-border: rgba(128, 128, 128, 0.2);

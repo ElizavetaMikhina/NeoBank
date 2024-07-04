@@ -1,6 +1,6 @@
 import { useForm } from '@hooks/useForm'
 
-export const Support = () => {
+export const Subscribe = () => {
   const {
     email,
     submitted,

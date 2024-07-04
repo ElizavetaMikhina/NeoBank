@@ -12,6 +12,7 @@ body {
   margin: $horizontal-center;
 }
 
+// Common
 .header {
   @include ubuntu-bold;
   @include flex-align-center;
@@ -19,13 +20,13 @@ body {
   max-height: 64px;
   padding: 7px 15px;
   justify-content: space-between;
-  margin-bottom: 130px;
+  margin-bottom: 20px;
 
   &__logo {
     color: $logo-color;
     font-size: 24px;
     line-height: 27px;
-    letter-spacing: 0.02em;
+    letter-spacing: $letter-spacing-slight;
   }
 
   &__nav {
@@ -34,6 +35,16 @@ body {
       justify-content: center;
       align-items: center;
       gap: 40px;
+    }
+
+    &-link {
+      &:hover {
+        color: $nav-item--active;
+      }
+
+      &--active {
+        color: $nav-item--active;
+      }
     }
 
     &-burger {
@@ -54,10 +65,79 @@ body {
   @include center-content;
 }
 
+.footer {
+  display: flex;
+  padding-top: 94px;
+  padding-bottom: 94px;
+  width: 100%;
+  max-height: 462px;
+  background: $footer-bg-color;
+  letter-spacing: $letter-spacing-slight;
+  @include ubuntu-medium;
+  line-height: $content-line-height;
+
+  &__content {
+    @include center-content;
+    width: 100%;
+    flex: 1;
+  }
+
+  &__logo {
+    object-fit: contain;
+    max-height: 50px;
+  }
+
+  &__contact-info {
+    @include flex-section;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tel {
+    @include ubuntu-bold;
+    font-size: $title-font-size;
+    line-height: $title-line-height;
+    margin-bottom: 6px;
+    letter-spacing: normal;
+  }
+
+  &__email {
+    font-size: $content-font-size;
+    color: $darkgray-text-color;
+  }
+
+  &__nav {
+    margin-bottom: 28px;
+
+    &-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $standard-gap;
+      row-gap: 8px;
+    }
+
+    &-burger {
+      display: none;
+    }
+  }
+
+  &__cookies-info {
+    padding-top: $standard-padding;
+    border-top: 1px solid white;
+    color: $darkgray-text-color;
+  }
+}
+
+// Home page
 .hero {
   @include flex-section;
   width: 100%;
   margin-bottom: 112px;
+  margin-top: 130px;
 
   &__description {
     max-width: 610px;
@@ -68,7 +148,7 @@ body {
 
   &__title {
     @include ubuntu-bold;
-    font-size: 48px;
+    font-size: $large-title-font-size;
     line-height: $line-height-50;
     margin-bottom: 36px;
   }
@@ -121,7 +201,7 @@ body {
 
   &__text {
     @include rubik-regular;
-    font-size: 16px;
+    font-size: $content-font-size;
     line-height: $line-height-30;
     margin-bottom: 25px;
   }
@@ -143,7 +223,7 @@ body {
   @include ubuntu-medium;
   @include flex-section;
   font-size: 20px;
-  padding: 32px;
+  padding: $standard-padding;
   background: linear-gradient(
       358.2deg,
       rgba(178, 178, 178, 0.8) 8.06%,
@@ -154,23 +234,23 @@ body {
     0px 2px 4px 0px #bbbbbb33,
     0px 0px 4px 0px #00000014;
   border-radius: 28px;
-  margin-bottom: 48px;
+  margin-bottom: $section-margin-bottom;
 
   &__title {
-    font-size: 30px;
+    font-size: $title-font-size;
     line-height: $line-height-50;
     margin-bottom: 24px;
   }
 
   &__subtitle {
-    margin-bottom: 32px;
+    margin-bottom: $standard-margin-bottom;
   }
 
   &__currencies {
     @include ubuntu-bold;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: $standard-gap;
     margin-bottom: 51px;
     max-width: 410px;
   }
@@ -192,7 +272,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: end;
-    font-size: 16px;
+    font-size: $content-font-size;
     line-height: $line-height-50;
   }
 
@@ -210,16 +290,16 @@ body {
   @include ubuntu-medium;
   text-align: center;
   line-height: $line-height-50;
-  margin-bottom: 48px;
+  margin-bottom: $section-margin-bottom;
 
   &__title {
     margin-bottom: 8px;
-    font-size: 30px;
+    font-size: $title-font-size;
   }
 
   &__description {
-    margin-bottom: 48px;
-    font-size: 16px;
+    margin-bottom: $section-margin-bottom;
+    font-size: $content-font-size;
   }
 
   &__map {
@@ -238,13 +318,13 @@ body {
 
   &__title {
     margin-bottom: 8px;
-    font-size: 30px;
+    font-size: $title-font-size;
     line-height: $line-height-50;
   }
 
   &__description {
     line-height: $line-height-50;
-    font-size: 16px;
+    font-size: $content-font-size;
   }
 
   &__slider {
@@ -262,18 +342,15 @@ body {
   }
 
   &__slide {
+    @include element-shadow-border-radius;
     display: flex;
     flex-direction: column;
     flex: 0 0 500px;
     margin-right: 80px;
     max-width: 320px;
     height: 448px;
-    padding: 32px;
+    padding: $standard-padding;
     background-color: $white-background-color;
-    border-radius: 28px;
-    box-shadow:
-      0px 2px 4px 0px #00000033,
-      0px 0px 8px 0px #00000014;
     border: 1px solid #ededed;
     overflow-y: hidden;
 
@@ -281,12 +358,11 @@ body {
       min-width: 100%;
       max-height: 120px;
       object-fit: cover;
-      margin-bottom: 32px;
+      margin-bottom: $standard-margin-bottom;
     }
 
     &-text-content {
-      display: flex;
-      flex-direction: column;
+      @include flex-column;
       justify-content: space-between;
       flex-grow: 1;
     }
@@ -302,7 +378,7 @@ body {
     }
 
     &-description {
-      font-size: 16px;
+      font-size: $content-font-size;
       line-height: 23px;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -364,10 +440,10 @@ body {
 
 .subscribe {
   @include ubuntu-bold;
-  font-size: 30px;
+  font-size: $title-font-size;
   line-height: 45px;
   text-align: center;
-  letter-spacing: 0.02em;
+  letter-spacing: $letter-spacing-slight;
   margin-bottom: 98px;
 
   &__support {
@@ -416,7 +492,7 @@ body {
     align-items: center;
     padding: 14px 55px;
     color: $white-text-color;
-    font-size: 16px;
+    font-size: $content-font-size;
     line-height: $line-height-20;
     border-radius: 20px;
   }
@@ -436,76 +512,615 @@ body {
   }
 }
 
-.footer {
-  display: flex;
-  padding-top: 94px;
-  padding-bottom: 94px;
-  width: 100%;
-  max-height: 462px;
-  background: $footer-bg-color;
-  letter-spacing: 0.02em;
-  @include ubuntu-medium;
-  line-height: 24px;
+// Loan page
+.credit-card {
+  @include flex-section;
+  @include ubuntu-bold;
+  @include element-shadow-border-radius;
+  letter-spacing: $letter-spacing-slight;
+  padding: 48px $standard-padding;
+  padding-right: 100px;
+  background: $credit-card-bg;
 
-  &__content {
-    @include center-content;
-    width: 100%;
-    flex: 1;
+  color: $credit-card-text-color;
+  margin-bottom: $section-margin-bottom;
+
+  &__info-wrapper {
+    @include flex-column;
+    padding-right: 10px;
   }
 
-  &__logo {
+  &__title {
+    color: $white-text-color;
+    font-size: $large-title-font-size;
+    line-height: 48px;
+    margin-bottom: $section-margin-bottom;
+  }
+
+  &__description {
+    @include ubuntu-medium;
+    font-size: $content-font-size;
+    line-height: 18px;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__info {
+    &-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: $standard-margin-bottom;
+    }
+
+    &-item {
+      position: relative;
+      cursor: pointer;
+
+      &-title {
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 8px;
+      }
+
+      &-description {
+        @include ubuntu-medium;
+        font-size: $content-font-size;
+        line-height: 18px;
+      }
+
+      &-tooltip {
+        @include ubuntu-medium;
+        max-width: 170px;
+        position: absolute;
+        z-index: 1;
+        visibility: hidden;
+        background: $tooltip-bg-color;
+        color: $white-text-color;
+        font-size: 12px;
+        line-height: 12px;
+        padding: 8px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        left: -8px;
+        top: 55px;
+        letter-spacing: $letter-spacing-slight;
+      }
+
+      &:hover &-tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__button {
+    @include button-size-desktop-loan;
+  }
+
+  &__image {
     object-fit: contain;
-    max-height: 50px;
+    max-width: 380px;
+  }
+}
+
+.card-feature {
+  margin-bottom: $section-margin-bottom;
+
+  &__nav {
+    border-bottom: 2px solid $card-feature-nav-border;
+    margin-bottom: $standard-margin-bottom;
+
+    &-items {
+      display: flex;
+      padding-bottom: 12px;
+    }
+
+    &-link {
+      color: $card-feature-nav;
+      padding: 0 16px 12px;
+
+      &--selected {
+        border-bottom: 2px solid $card-feature-nav;
+      }
+    }
+  }
+}
+
+.about-card {
+  @include ubuntu-medium;
+
+  &__items {
+    @include flex-wrap-gap;
+  }
+
+  &__item {
+    height: 236px;
+
+    &-icon {
+      max-width: 40px;
+      max-height: 40px;
+      margin-bottom: 24px;
+    }
+
+    &-title {
+      @include ubuntu-bold;
+      font-size: $title-font-size;
+      line-height: 45px;
+      margin-bottom: 24px;
+    }
+
+    &-description {
+      font-size: $content-font-size;
+      line-height: 16px;
+      letter-spacing: $letter-spacing-slight;
+    }
+
+    &:nth-child(even) {
+      background-color: $about-card-bg-color-even;
+    }
+
+    &:nth-child(odd) {
+      background-color: $about-card-bg-color-odd;
+    }
+  }
+}
+
+.steps {
+  @include ubuntu-bold;
+  margin-bottom: 44px;
+
+  &__title {
+    font-size: $title-font-size;
+    line-height: 45px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  &__items {
+    @include flex-section;
+    text-align: center;
+  }
+
+  &__item {
+    max-width: 380px;
+
+    &-number {
+      width: 48px;
+      height: 48px;
+      background-color: $steps-number-background;
+      @include flex-align-center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    &-decorate {
+      position: relative;
+      margin-bottom: 20px;
+
+      &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: calc(100% - 84px);
+        height: 2px;
+        top: 50%;
+        right: 0;
+        background-color: $card-feature-nav-border;
+      }
+    }
+
+    &-text-content {
+      @include ubuntu-medium;
+      font-size: $content-font-size;
+      line-height: $content-line-height;
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+
+.prescoring {
+  @include element-shadow-border-radius;
+  margin-bottom: 96px;
+  background-color: $white-background-color;
+  border-radius: 28px;
+  padding: $standard-padding;
+  min-height: 584px;
+  @include ubuntu-bold;
+
+  &__main {
+    @include flex-section;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__content {
+    padding-right: 40px;
+    border-right: 1px dashed #80808066;
+    flex: 1 1 50%;
+  }
+
+  &__header {
+    @include flex-section;
+    align-items: center;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__title {
+    font-size: $title-font-size;
+    line-height: 30px;
+  }
+
+  &__step {
+    @include ubuntu-medium;
+  }
+
+  &__amount {
+    @include ubuntu-medium;
+    @include flex-column;
+    padding: 24px;
+    padding-bottom: 41px;
+    border: 1px solid $amount-border;
+    border-radius: 10px;
+    height: 164px;
+    font-size: $content-font-size;
+
+    &-label {
+      margin-bottom: 20px;
+    }
+
+    &-value {
+      margin-bottom: 20px;
+    }
+
+    &-range-values {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 2px;
+      background: #e2e8f0;
+      outline: none;
+      margin-bottom: 10px;
+      position: relative;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: $amount-border;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+      }
+
+      &::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: $amount-border;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: calc((100% - 24px) * (var(--amount) / (600000 - 15000)));
+        background-color: $amount-border;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__chosen-amount {
+    flex: 1 1 50%;
+    padding-left: 42px;
+
+    &-title {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    &-value {
+      @include ubuntu-medium;
+      width: 220px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #80808033;
+    }
+  }
+}
+
+.prescoring-form {
+  @include ubuntu-medium;
+
+  &__title {
+    @include ubuntu-bold;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 24px;
   }
 
   &__contact-info {
-    @include flex-section;
-    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
   }
 
-  &__contacts {
-    display: flex;
-    flex-direction: column;
+  &__field {
+    @include flex-column;
+
+    &-label {
+      margin-bottom: 8px;
+
+      &--required {
+        color: #ff0000;
+      }
+    }
+
+    &-input,
+    &-select {
+      padding: 8px;
+      border: 1px solid #80808033;
+      background: #f9f5e3;
+      border-radius: 6px;
+      height: 40px;
+      font-weight: 400;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $amount-border;
+      }
+
+      &--error {
+        border: 2px solid #ff5631;
+        background-image: url('../icons/cross.svg');
+        background-repeat: no-repeat;
+        background-position: right 19px center;
+        background-size: 18px 18px;
+
+        &[name='dateOfBirth'] {
+          background-position: right 30px center;
+        }
+      }
+
+      &--success {
+        background-image: url('../icons/check-mark.svg');
+        background-repeat: no-repeat;
+        background-position: right 19px center;
+        background-size: 18px 18px;
+
+        &[name='dateOfBirth'] {
+          background-position: right 30px center;
+        }
+      }
+    }
   }
 
-  &__tel {
-    @include ubuntu-bold;
-    font-size: 30px;
-    line-height: 44px;
-    margin-bottom: 6px;
-    letter-spacing: normal;
+  &__error {
+    color: red;
+    font-size: $content-font-size;
   }
 
-  &__email {
-    font-size: 16px;
-    color: $darkgray-text-color;
-  }
+  &__button {
+    min-width: 148px;
+    min-height: 48px;
+    padding: 16px;
+    border-radius: 8px;
 
-  &__nav {
-    margin-bottom: 28px;
-
-    &-list {
+    &-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      row-gap: 8px;
+      justify-content: flex-end;
+      text-align: right;
     }
-
-    &-burger {
-      display: none;
-    }
-  }
-
-  &__cookies-info {
-    padding-top: 32px;
-    border-top: 1px solid white;
-    color: $darkgray-text-color;
   }
 }
+
+.cashback-card {
+  &__items {
+    @include flex-wrap-gap;
+    color: $cashback-card-text-color;
+  }
+
+  &__item {
+    height: 163px;
+
+    &-title {
+      font-size: $content-font-size;
+      line-height: $content-line-height;
+      margin-bottom: 22px;
+    }
+
+    &-description {
+      @include ubuntu-bold;
+      color: black;
+      font-size: 36px;
+      line-height: 53px;
+    }
+
+    &:nth-child(even) {
+      background-color: $cashback-card-bg-color-even;
+    }
+
+    &:nth-child(odd) {
+      background-color: $cashback-card-bg-color-odd;
+    }
+  }
+}
+
+.rates-card {
+  &__items {
+    @include flex-column;
+    font-size: $content-font-size;
+    line-height: 16px;
+    letter-spacing: $letter-spacing-slight;
+  }
+
+  &__item {
+    display: flex;
+    border-bottom: 1px solid #7f92ac;
+    max-width: 1015px;
+    padding: 24px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &-title {
+      flex: 1 1 33.3%;
+    }
+
+    &-description {
+      flex: 1 1 66.6%;
+      color: $cashback-card-text-color;
+    }
+  }
+}
+
+.faq {
+  &__title {
+    @include ubuntu-bold;
+    font-size: $title-font-size;
+    margin-bottom: $standard-margin-bottom;
+    line-height: $title-line-height;
+  }
+
+  &__items {
+    &:first-of-type {
+      margin-bottom: $standard-margin-bottom;
+    }
+  }
+
+  &__item {
+    border: 1px solid #e2e8f0;
+
+    &:not(:first-child) {
+      margin-top: -1px;
+    }
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      padding: $standard-padding;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    &-question {
+      font-size: $content-font-size;
+      line-height: $content-line-height;
+    }
+
+    &-arrow {
+      transform: scaleY(-1);
+      transition: transform 0.3s ease;
+
+      &--active {
+        transform: scaleY(1);
+      }
+    }
+
+    &-answer {
+      color: $card-feature-nav;
+      font-size: $content-font-size;
+      line-height: $content-line-height;
+      font-weight: 400;
+      height: 0;
+      overflow: hidden;
+      padding: 0 $standard-padding;
+      transition:
+        height 0.5s ease,
+        padding 0.3s ease;
+
+      &--active {
+        height: auto;
+        padding-top: 26px;
+        padding-bottom: $standard-padding;
+        transition:
+          height 0.3s ease,
+          padding-top 0.3s ease,
+          padding-bottom 0.3s ease;
+
+        .faq__item-question.active &-arrow {
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+}
+
+// @media (max-width: 1210px) {
+//   .about-card {
+//     &__item {
+//       @include flex-column;
+//       justify-content: space-between;
+
+//       &-icon {
+//         max-width: 38px;
+//         max-height: 38px;
+//         margin-bottom: 0px;
+//       }
+
+//       &-title {
+//         font-size: 28px;
+//         line-height: $line-height-40;
+//         margin-bottom: 0px;
+//       }
+//     }
+//   }
+// }
 
 @media (max-width: 920px) {
   .header {
     margin-bottom: 30px;
+  }
+
+  .footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    &__contact-info {
+      margin-bottom: 24px;
+      text-align: right;
+    }
+
+    &__tel {
+      font-size: 24px;
+      line-height: $line-height-30;
+    }
+
+    &__email {
+      font-size: 14px;
+    }
+
+    &__nav {
+      margin-bottom: 20px;
+    }
+
+    &__nav-list {
+      gap: 28px;
+      row-gap: 8px;
+    }
+
+    &__cookies-info {
+      padding-top: 20px;
+    }
   }
 
   .hero {
@@ -542,7 +1157,7 @@ body {
     }
 
     &__title {
-      font-size: 30px;
+      font-size: $title-font-size;
       line-height: $line-height-40;
     }
 
@@ -697,37 +1312,60 @@ body {
     }
   }
 
-  .footer {
-    padding-top: 60px;
-    padding-bottom: 60px;
+  // Loan page
+  // .credit-card {
+  //   padding: 36px 26px;
+  //   margin-bottom: 38px;
 
-    &__contact-info {
-      margin-bottom: 24px;
-      text-align: right;
-    }
+  //   &__info-wrapper {
+  //     padding-right: 20px;
+  //   }
 
-    &__tel {
-      font-size: 24px;
-      line-height: $line-height-30;
-    }
+  //   &__title {
+  //     font-size: 38px;
+  //     line-height: 38px;
+  //     margin-bottom: 26px;
+  //   }
 
-    &__email {
-      font-size: 14px;
-    }
+  //   &__description {
+  //     font-size: 14px;
+  //     line-height: 16px;
+  //     margin-bottom: 26px;
+  //   }
 
-    &__nav {
-      margin-bottom: 20px;
-    }
+  //   &__info {
+  //     &-items {
+  //       gap: 10px;
+  //       margin-bottom: 28px;
+  //     }
 
-    &__nav-list {
-      gap: 28px;
-      row-gap: 8px;
-    }
+  //     &-item {
+  //       &-title {
+  //         font-size: 16px;
+  //         line-height: 18px;
+  //       }
 
-    &__cookies-info {
-      padding-top: 20px;
-    }
-  }
+  //       &-description {
+  //         font-size: 14px;
+  //         line-height: 14px;
+  //       }
+
+  //       &-tooltip {
+  //         max-width: 140px;
+  //         left: -6px;
+  //         top: 50px;
+  //       }
+  //     }
+  //   }
+
+  //   &__button {
+  //     @include button-size-desktop-loan;
+  //   }
+
+  //   &__image {
+  //     max-width: 380px;
+  //   }
+  // }
 }
 
 @media (max-width: 800px) {
@@ -823,7 +1461,7 @@ body {
     margin-bottom: 40px;
 
     &__title {
-      font-size: 30px;
+      font-size: $title-font-size;
       line-height: $line-height-40;
       margin-bottom: 15px;
     }
@@ -862,7 +1500,7 @@ body {
     }
 
     &__text {
-      font-size: 16px;
+      font-size: $content-font-size;
       line-height: $line-height-30;
       margin-bottom: 20px;
     }
@@ -879,7 +1517,7 @@ body {
   }
 
   .exchange-rate {
-    font-size: 16px;
+    font-size: $content-font-size;
     padding: 20px;
     border-radius: 20px;
     margin-bottom: 30px;
@@ -903,7 +1541,7 @@ body {
 
     &__currency {
       gap: 10px;
-      font-size: 16px;
+      font-size: $content-font-size;
     }
 
     &__related-content {
@@ -953,7 +1591,7 @@ body {
       }
 
       &-title {
-        font-size: 16px;
+        font-size: $content-font-size;
         line-height: $line-height-20;
       }
 
@@ -984,7 +1622,7 @@ body {
     }
 
     &__input {
-      font-size: 16px;
+      font-size: $content-font-size;
       max-width: 400px;
       height: 70px;
     }
