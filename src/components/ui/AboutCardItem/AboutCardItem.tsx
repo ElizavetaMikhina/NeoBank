@@ -16,8 +16,12 @@ export const AboutCardItem: React.FC<AboutCardItemProps> = ({
 }) => {
   return (
     <li className={`${className}__item ${styles.item}`}>
-      {icon && <img src={icon} alt="" className={`${className}__item-icon`} />}
-      <h3 className={`${className}__item-title`}>{title}</h3>
+      <div className={`${className}__item-mobile-wrapper`}>
+        {icon && (
+          <img src={icon} alt="" className={`${className}__item-icon`} />
+        )}
+        <h3 className={`${className}__item-title`}>{title}</h3>
+      </div>
       <p className={`${className}__item-description`}>{description}</p>
     </li>
   )

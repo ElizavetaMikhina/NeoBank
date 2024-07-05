@@ -385,6 +385,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  line-clamp: 5;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
@@ -394,6 +395,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
+  line-clamp: 3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
@@ -672,12 +674,10 @@ body {
   margin-bottom: 14px;
 }
 .steps__items {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(calc(33.3% - 72px), 1fr));
+  gap: 50px;
   text-align: center;
-}
-.steps__item {
-  max-width: 380px;
 }
 .steps__item-number {
   width: 48px;
@@ -847,7 +847,7 @@ body {
 }
 .prescoring-form__contact-info {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(calc(25% - 48px), 1fr));
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -877,20 +877,16 @@ body {
 .prescoring-form__field-input--error, .prescoring-form__field-select--error {
   border: 2px solid #ff5631;
   background-image: url("../icons/cross.svg");
-  background-repeat: no-repeat;
-  background-position: right 19px center;
-  background-size: 18px 18px;
-}
-.prescoring-form__field-input--error[name=dateOfBirth], .prescoring-form__field-select--error[name=dateOfBirth] {
-  background-position: right 30px center;
 }
 .prescoring-form__field-input--success, .prescoring-form__field-select--success {
   background-image: url("../icons/check-mark.svg");
+}
+.prescoring-form__field-input--error, .prescoring-form__field-input--success, .prescoring-form__field-select--error, .prescoring-form__field-select--success {
   background-repeat: no-repeat;
   background-position: right 19px center;
   background-size: 18px 18px;
 }
-.prescoring-form__field-input--success[name=dateOfBirth], .prescoring-form__field-select--success[name=dateOfBirth] {
+.prescoring-form__field-input--error[name=dateOfBirth], .prescoring-form__field-input--success[name=dateOfBirth], .prescoring-form__field-select--error[name=dateOfBirth], .prescoring-form__field-select--success[name=dateOfBirth] {
   background-position: right 30px center;
 }
 .prescoring-form__error {
@@ -898,12 +894,14 @@ body {
   font-size: 16px;
 }
 .prescoring-form__button {
-  min-width: 148px;
-  min-height: 48px;
+  width: 148px;
+  height: 48px;
   padding: 16px;
   border-radius: 8px;
 }
 .prescoring-form__button-container {
+  display: flex;
+  justify-content: flex-end;
   text-align: right;
 }
 
@@ -1018,19 +1016,67 @@ body {
   transform: scaleY(1);
 }
 
+@media (max-width: 1210px) {
+  .about-card__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .about-card__item-icon {
+    max-width: 38px;
+    max-height: 38px;
+    margin-bottom: 0px;
+  }
+  .about-card__item-title {
+    font-size: 28px;
+    line-height: 30px;
+    margin-bottom: 0px;
+  }
+  .about-card__item-description {
+    line-height: 20px;
+  }
+}
 @media (max-width: 920px) {
   .header {
     margin-bottom: 30px;
+  }
+  .footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .footer__contact-info {
+    margin-bottom: 24px;
+    text-align: right;
+  }
+  .footer__tel {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .footer__email {
+    font-size: 14px;
+  }
+  .footer__nav {
+    margin-bottom: 20px;
+  }
+  .footer__nav-list {
+    gap: 28px;
+    row-gap: 8px;
+  }
+  .footer__cookies-info {
+    padding-top: 20px;
   }
   .hero {
     flex-direction: column;
     text-align: center;
     align-items: center;
     margin-bottom: 40px;
+    margin-top: 60px;
+  }
+  .hero__title, .hero__button {
+    margin-bottom: 40px;
   }
   .hero__title {
     font-size: 36px;
-    margin-bottom: 20px;
   }
   .hero__button {
     max-width: 160px;
@@ -1040,7 +1086,6 @@ body {
     letter-spacing: 0.02;
     border-radius: 16px;
     align-self: center;
-    margin-bottom: 20px;
   }
   .hero__cards {
     display: flex;
@@ -1175,30 +1220,196 @@ body {
     max-width: 24px;
     left: 20px;
   }
-  .footer {
-    padding-top: 60px;
-    padding-bottom: 60px;
+  .credit-card {
+    padding: 36px 26px;
+    margin-bottom: 38px;
   }
-  .footer__contact-info {
-    margin-bottom: 24px;
-    text-align: right;
+  .credit-card__info-wrapper {
+    padding-right: 30px;
   }
-  .footer__tel {
-    font-size: 24px;
-    line-height: 30px;
+  .credit-card__title {
+    font-size: 38px;
+    line-height: 38px;
+    margin-bottom: 26px;
   }
-  .footer__email {
+  .credit-card__description {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 26px;
+  }
+  .credit-card__info-items {
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .credit-card__info-item-title {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .credit-card__info-item-description {
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .credit-card__info-item-tooltip {
+    max-width: 140px;
+    left: -6px;
+    top: 50px;
+  }
+  .credit-card__button {
+    max-width: 145px;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.02;
+    border-radius: 8px;
+  }
+  .credit-card__image {
+    max-width: 350px;
+  }
+  .card-feature {
+    margin-bottom: 38px;
+  }
+  .card-feature__nav {
+    margin-bottom: 28px;
+  }
+  .about-card__items {
+    gap: 30px;
+  }
+  .steps {
+    margin-bottom: 38px;
+  }
+  .steps__title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .steps__items {
+    gap: 30px;
+  }
+  .steps__item-number {
+    max-width: 44px;
+    max-height: 44px;
+    font-size: 18px;
+  }
+  .steps__item-decorate::after {
+    width: calc(100% - 70px);
+  }
+  .steps__item-text-content {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .prescoring {
+    margin-bottom: 60px;
+    padding: 28px;
+    min-height: auto;
+  }
+  .prescoring__content {
+    padding-right: 28px;
+  }
+  .prescoring__header {
+    margin-bottom: 28px;
+  }
+  .prescoring__title {
+    font-size: 26px;
+    line-height: 26px;
+  }
+  .prescoring__step {
     font-size: 14px;
   }
-  .footer__nav {
+  .prescoring__amount {
+    padding: 20px;
+    height: auto;
+    max-height: 164px;
+    font-size: 14px;
+  }
+  .prescoring__chosen-amount {
+    padding-left: 28px;
+  }
+  .prescoring__chosen-amount-title {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  .prescoring__chosen-amount-value {
+    font-size: 14px;
+    width: 180px;
+  }
+  .prescoring-form__title {
+    font-size: 18px;
+    line-height: 18px;
     margin-bottom: 20px;
   }
-  .footer__nav-list {
-    gap: 28px;
-    row-gap: 8px;
+  .prescoring-form__contact-info {
+    grid-template-columns: repeat(auto-fill, minmax(calc(25% - 42px), 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
   }
-  .footer__cookies-info {
-    padding-top: 20px;
+  .prescoring-form__field-label {
+    font-size: 14px;
+  }
+  .prescoring-form__field-input, .prescoring-form__field-select {
+    height: auto;
+    font-weight: 400;
+    font-size: 12px;
+  }
+  .prescoring-form__field-input--error, .prescoring-form__field-input--success, .prescoring-form__field-select--error, .prescoring-form__field-select--success {
+    background-position: right 12px center;
+    background-size: 16px 16px;
+  }
+  .prescoring-form__field-input--error[name=dateOfBirth], .prescoring-form__field-input--success[name=dateOfBirth], .prescoring-form__field-select--error[name=dateOfBirth], .prescoring-form__field-select--success[name=dateOfBirth] {
+    background-position: right 28px center;
+  }
+  .prescoring-form__error {
+    padding-top: 3px;
+    font-size: 14px;
+  }
+  .prescoring-form__button {
+    font-size: 14px;
+    width: 120px;
+    height: 42px;
+    padding: 14px;
+  }
+  .cashback-card__items {
+    gap: 20px;
+  }
+  .cashback-card__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    max-height: 160px;
+    padding: 30px;
+  }
+  .cashback-card__item-title {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 24px;
+  }
+  .cashback-card__item-description {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .rates-card__items {
+    font-size: 14px;
+  }
+  .rates-card__item {
+    padding: 20px 0;
+  }
+  .faq__title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    line-height: 30px;
+  }
+  .faq__items:first-of-type {
+    margin-bottom: 24px;
+  }
+  .faq__item-content {
+    padding: 26px;
+    padding-right: 34px;
+  }
+  .faq__item-answer {
+    padding: 0 26px;
+  }
+  .faq__item-answer--active {
+    padding-top: 26px;
+    padding-bottom: 26px;
   }
 }
 @media (max-width: 800px) {
@@ -1210,6 +1421,28 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+  .credit-card__image {
+    max-width: 260px;
+  }
+}
+@media (max-width: 780px) {
+  .prescoring {
+    padding: 26px;
+  }
+  .prescoring__main {
+    margin-bottom: 28px;
+  }
+  .prescoring__title {
+    font-size: 22px;
+  }
+}
+@media (max-width: 760px) {
+  .credit-card__image {
+    max-width: 240px;
+  }
+  .prescoring-form__field-label, .prescoring-form__error {
+    font-size: 12px;
   }
 }
 @media (max-width: 700px) {
@@ -1251,6 +1484,79 @@ body {
   .header__button {
     order: 2;
   }
+  .credit-card {
+    position: relative;
+  }
+  .credit-card__info-items {
+    max-width: 400px;
+  }
+  .credit-card__image {
+    position: absolute;
+    max-width: 190px;
+    right: 20px;
+    bottom: 20px;
+  }
+  .steps__items {
+    gap: 26px;
+  }
+  .steps__item-decorate::after {
+    width: calc(100% - 60px);
+  }
+  .prescoring {
+    padding: 22px;
+  }
+  .prescoring__content {
+    padding-right: 22px;
+  }
+  .prescoring__header {
+    margin-bottom: 22px;
+  }
+  .prescoring__title {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .prescoring__step {
+    font-size: 12px;
+  }
+  .prescoring__amount {
+    font-size: 12px;
+  }
+  .prescoring__amount-input::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+  }
+  .prescoring__chosen-amount {
+    padding-left: 22px;
+  }
+  .prescoring__chosen-amount-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .prescoring__chosen-amount-value {
+    width: 160px;
+    font-size: 12px;
+  }
+  .prescoring-form__contact-info {
+    grid-template-columns: repeat(auto-fill, minmax(calc(25% - 36px), 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .prescoring-form__button {
+    max-height: 34px;
+    max-width: 110px;
+    line-height: 12px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 640px) {
+  .credit-card__image {
+    display: none;
+  }
+  .prescoring-form__contact-info {
+    grid-template-columns: repeat(auto-fill, minmax(calc(33.3% - 24px), 1fr));
+  }
 }
 @media (max-width: 500px) {
   .header {
@@ -1267,7 +1573,7 @@ body {
   .header__button {
     max-width: 140px;
     line-height: 15px;
-    font-size: 14px;
+    font-size: 12px;
     padding: 12px;
     border-radius: 12px;
   }
@@ -1282,7 +1588,7 @@ body {
   .hero__button {
     max-width: 140px;
     line-height: 15px;
-    font-size: 14px;
+    font-size: 12px;
     padding: 12px;
     border-radius: 12px;
   }
@@ -1333,13 +1639,12 @@ body {
     line-height: 30px;
     margin-bottom: 14px;
   }
-  .exchange-rate__subtitle {
+  .exchange-rate__subtitle, .exchange-rate__currencies {
     margin-bottom: 25px;
   }
   .exchange-rate__currencies {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    margin-bottom: 25px;
     max-width: 200px;
   }
   .exchange-rate__currency {
@@ -1362,10 +1667,7 @@ body {
     line-height: 20px;
     margin-bottom: 20px;
   }
-  .news-feed__title {
-    line-height: 30px;
-  }
-  .news-feed__description {
+  .news-feed__title, .news-feed__description {
     line-height: 30px;
   }
   .news-feed__slider {
@@ -1396,9 +1698,8 @@ body {
   .subscribe__support {
     font-size: 20px;
     line-height: 25px;
-    margin-bottom: 15px;
   }
-  .subscribe__title {
+  .subscribe__title, .subscribe__support {
     margin-bottom: 15px;
   }
   .subscribe__subtitle {
@@ -1431,6 +1732,222 @@ body {
   }
   .footer__cookies-info {
     font-size: 12px;
+  }
+  .credit-card {
+    padding: 24px;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .credit-card__info-wrapper {
+    padding-right: 0;
+  }
+  .credit-card__title, .credit-card__description, .credit-card__info-items {
+    margin-bottom: 24px;
+  }
+  .credit-card__title {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .credit-card__description {
+    font-size: 12px;
+  }
+  .credit-card__info-item-title {
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 6px;
+  }
+  .credit-card__info-item-description {
+    font-size: 12px;
+  }
+  .credit-card__info-item-tooltip {
+    max-width: 130px;
+    padding: 6px;
+    left: -6px;
+    top: 42px;
+  }
+  .credit-card__button {
+    align-self: flex-end;
+    max-height: 34px;
+    max-width: 110px;
+    line-height: 12px;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .card-feature {
+    margin-bottom: 24px;
+  }
+  .card-feature__nav {
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .card-feature__nav-items {
+    justify-content: space-between;
+    padding-bottom: 8px;
+  }
+  .card-feature__nav-link {
+    padding-bottom: 8px;
+  }
+  .about-card__items {
+    gap: 24px;
+  }
+  .about-card__item {
+    padding: 20px;
+    height: auto;
+  }
+  .about-card__item-mobile-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .about-card__item-icon {
+    max-width: 30px;
+    max-height: 30px;
+    margin-right: 10px;
+  }
+  .about-card__item-title {
+    font-size: 16px;
+    text-align: right;
+  }
+  .about-card__item-description {
+    align-self: flex-end;
+    text-align: right;
+    font-size: 12px;
+    max-width: 380px;
+  }
+  .steps {
+    margin-bottom: 30px;
+  }
+  .steps__title {
+    font-size: 22px;
+    line-height: 25px;
+    margin-bottom: 12px;
+  }
+  .steps__item-number {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  .steps__item-decorate {
+    margin-bottom: 10px;
+  }
+  .steps__item-decorate::after {
+    width: calc(100% - 50px);
+  }
+  .steps__item-text-content {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .prescoring {
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+  .prescoring__main {
+    margin-bottom: 30px;
+  }
+  .prescoring__content {
+    padding-right: 20px;
+  }
+  .prescoring__header {
+    margin-bottom: 20px;
+  }
+  .prescoring__title {
+    font-size: 16px;
+    max-width: 100px;
+  }
+  .prescoring__amount {
+    padding: 16px;
+  }
+  .prescoring__amount-label, .prescoring__amount-value {
+    margin-bottom: 16px;
+  }
+  .prescoring__amount-input::-webkit-slider-thumb, .prescoring__amount-input::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+  }
+  .prescoring__amount-input::before {
+    width: calc((100% - 16px) * var(--amount) / 585000);
+  }
+  .prescoring__chosen-amount {
+    padding-left: 20px;
+  }
+  .prescoring__chosen-amount-title {
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+  .prescoring__chosen-amount-value {
+    width: 140px;
+  }
+  .prescoring-form__title {
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom: 18px;
+  }
+  .prescoring-form__contact-info {
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 14px), 1fr));
+    gap: 14px;
+  }
+  .prescoring-form__field-label {
+    margin-bottom: 6px;
+  }
+  .prescoring-form__field-input, .prescoring-form__field-select {
+    padding: 6px;
+  }
+  .prescoring-form__field-input--error, .prescoring-form__field-input--success, .prescoring-form__field-select--error, .prescoring-form__field-select--success {
+    background-position: right 8px center;
+    background-size: 14px 14px;
+  }
+  .prescoring-form__field-input--error[name=dateOfBirth], .prescoring-form__field-input--success[name=dateOfBirth], .prescoring-form__field-select--error[name=dateOfBirth], .prescoring-form__field-select--success[name=dateOfBirth] {
+    background-position: right 26px center;
+  }
+  .cashback-card__item-title {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .cashback-card__item-description {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .rates-card__items {
+    font-size: 12px;
+  }
+  .rates-card__item {
+    padding: 18px 0;
+  }
+  .rates-card__item-title {
+    flex: 1 1 36%;
+    margin-right: 20px;
+  }
+  .rates-card__item-description {
+    flex: 1 1 64%;
+    color: rgba(67, 67, 67, 0.8980392157);
+  }
+  .faq__title {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .faq__items:first-of-type, .faq__title {
+    margin-bottom: 18px;
+  }
+  .faq__item-content {
+    padding: 20px 24px;
+  }
+  .faq__item-question {
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 20px;
+  }
+  .faq__item-arrow {
+    max-width: 10px;
+  }
+  .faq__item-answer {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 24px;
+  }
+  .faq__item-answer--active {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 @media (max-width: 440px) {

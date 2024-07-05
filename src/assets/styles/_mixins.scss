@@ -48,9 +48,18 @@
 @mixin button-size-mobile {
   max-width: 140px;
   line-height: 15px;
-  font-size: 14px;
+  font-size: 12px;
   padding: 12px;
   border-radius: 12px;
+}
+
+@mixin button-size-mobile-loan {
+  max-height: 34px;
+  max-width: 110px;
+  line-height: 12px;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 @mixin flex-wrap-gap {

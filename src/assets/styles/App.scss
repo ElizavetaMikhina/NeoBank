@@ -373,6 +373,7 @@ body {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
+      line-clamp: 5;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
     }
@@ -383,6 +384,7 @@ body {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
+      line-clamp: 3;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
     }
@@ -676,13 +678,13 @@ body {
   }
 
   &__items {
-    @include flex-section;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(calc(33.3% - 36px * 2), 1fr));
+    gap: 50px;
     text-align: center;
   }
 
   &__item {
-    max-width: 380px;
-
     &-number {
       width: 48px;
       height: 48px;
@@ -853,7 +855,7 @@ body {
 
   &__contact-info {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(calc(25% - 16px * 3), 1fr));
     gap: 16px;
     margin-bottom: 24px;
   }
@@ -887,17 +889,14 @@ body {
       &--error {
         border: 2px solid #ff5631;
         background-image: url('../icons/cross.svg');
-        background-repeat: no-repeat;
-        background-position: right 19px center;
-        background-size: 18px 18px;
-
-        &[name='dateOfBirth'] {
-          background-position: right 30px center;
-        }
       }
 
       &--success {
         background-image: url('../icons/check-mark.svg');
+      }
+
+      &--error,
+      &--success {
         background-repeat: no-repeat;
         background-position: right 19px center;
         background-size: 18px 18px;
@@ -915,8 +914,8 @@ body {
   }
 
   &__button {
-    min-width: 148px;
-    min-height: 48px;
+    width: 148px;
+    height: 48px;
     padding: 16px;
     border-radius: 8px;
 
@@ -1065,26 +1064,30 @@ body {
   }
 }
 
-// @media (max-width: 1210px) {
-//   .about-card {
-//     &__item {
-//       @include flex-column;
-//       justify-content: space-between;
+@media (max-width: 1210px) {
+  .about-card {
+    &__item {
+      @include flex-column;
+      justify-content: space-between;
 
-//       &-icon {
-//         max-width: 38px;
-//         max-height: 38px;
-//         margin-bottom: 0px;
-//       }
+      &-icon {
+        max-width: 38px;
+        max-height: 38px;
+        margin-bottom: 0px;
+      }
 
-//       &-title {
-//         font-size: 28px;
-//         line-height: $line-height-40;
-//         margin-bottom: 0px;
-//       }
-//     }
-//   }
-// }
+      &-title {
+        font-size: 28px;
+        line-height: $line-height-30;
+        margin-bottom: 0px;
+      }
+
+      &-description {
+        line-height: $line-height-20;
+      }
+    }
+  }
+}
 
 @media (max-width: 920px) {
   .header {
@@ -1128,16 +1131,20 @@ body {
     text-align: center;
     align-items: center;
     margin-bottom: 40px;
+    margin-top: 60px;
+
+    &__title,
+    &__button {
+      margin-bottom: 40px;
+    }
 
     &__title {
       font-size: 36px;
-      margin-bottom: 20px;
     }
 
     &__button {
       @include button-size-desktop;
       align-self: center;
-      margin-bottom: 20px;
     }
 
     &__cards {
@@ -1313,59 +1320,265 @@ body {
   }
 
   // Loan page
-  // .credit-card {
-  //   padding: 36px 26px;
-  //   margin-bottom: 38px;
+  .credit-card {
+    padding: 36px 26px;
+    margin-bottom: 38px;
 
-  //   &__info-wrapper {
-  //     padding-right: 20px;
-  //   }
+    &__info-wrapper {
+      padding-right: 30px;
+    }
 
-  //   &__title {
-  //     font-size: 38px;
-  //     line-height: 38px;
-  //     margin-bottom: 26px;
-  //   }
+    &__title {
+      font-size: 38px;
+      line-height: 38px;
+      margin-bottom: 26px;
+    }
 
-  //   &__description {
-  //     font-size: 14px;
-  //     line-height: 16px;
-  //     margin-bottom: 26px;
-  //   }
+    &__description {
+      font-size: 14px;
+      line-height: 16px;
+      margin-bottom: 26px;
+    }
 
-  //   &__info {
-  //     &-items {
-  //       gap: 10px;
-  //       margin-bottom: 28px;
-  //     }
+    &__info {
+      &-items {
+        gap: 10px;
+        margin-bottom: 28px;
+      }
 
-  //     &-item {
-  //       &-title {
-  //         font-size: 16px;
-  //         line-height: 18px;
-  //       }
+      &-item {
+        &-title {
+          font-size: 16px;
+          line-height: 18px;
+        }
 
-  //       &-description {
-  //         font-size: 14px;
-  //         line-height: 14px;
-  //       }
+        &-description {
+          font-size: 14px;
+          line-height: 14px;
+        }
 
-  //       &-tooltip {
-  //         max-width: 140px;
-  //         left: -6px;
-  //         top: 50px;
-  //       }
-  //     }
-  //   }
+        &-tooltip {
+          max-width: 140px;
+          left: -6px;
+          top: 50px;
+        }
+      }
+    }
 
-  //   &__button {
-  //     @include button-size-desktop-loan;
-  //   }
+    &__button {
+      @include button-size-desktop-loan;
+    }
 
-  //   &__image {
-  //     max-width: 380px;
-  //   }
-  // }
+    &__image {
+      max-width: 350px;
+    }
+  }
+
+  .card-feature {
+    margin-bottom: 38px;
+
+    &__nav {
+      margin-bottom: 28px;
+    }
+  }
+
+  .about-card {
+    &__items {
+      gap: 30px;
+    }
+  }
+
+  .steps {
+    margin-bottom: 38px;
+
+    &__title {
+      font-size: 28px;
+      line-height: 40px;
+    }
+    &__items {
+      gap: 30px;
+    }
+
+    &__item {
+      &-number {
+        max-width: 44px;
+        max-height: 44px;
+        font-size: 18px;
+      }
+
+      &-decorate {
+        &::after {
+          width: calc(100% - 70px);
+        }
+      }
+
+      &-text-content {
+        font-size: 14px;
+        line-height: $line-height-25;
+      }
+    }
+  }
+
+  .prescoring {
+    margin-bottom: 60px;
+    padding: 28px;
+    min-height: auto;
+
+    &__content {
+      padding-right: 28px;
+    }
+
+    &__header {
+      margin-bottom: 28px;
+    }
+
+    &__title {
+      font-size: 26px;
+      line-height: 26px;
+    }
+
+    &__step {
+      font-size: 14px;
+    }
+
+    &__amount {
+      padding: 20px;
+      height: auto;
+      max-height: 164px;
+      font-size: 14px;
+    }
+
+    &__chosen-amount {
+      padding-left: 28px;
+
+      &-title {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      &-value {
+        font-size: 14px;
+        width: 180px;
+      }
+    }
+  }
+
+  .prescoring-form {
+    &__title {
+      font-size: 18px;
+      line-height: 18px;
+      margin-bottom: 20px;
+    }
+
+    &__contact-info {
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(calc(25% - 14px * 3), 1fr)
+      );
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    &__field {
+      &-label {
+        font-size: 14px;
+      }
+
+      &-input,
+      &-select {
+        height: auto;
+        font-weight: 400;
+        font-size: 12px;
+
+        &--error,
+        &--success {
+          background-position: right 12px center;
+          background-size: 16px 16px;
+
+          &[name='dateOfBirth'] {
+            background-position: right 28px center;
+          }
+        }
+      }
+    }
+
+    &__error {
+      padding-top: 3px;
+      font-size: 14px;
+    }
+
+    &__button {
+      font-size: 14px;
+      width: 120px;
+      height: 42px;
+      padding: 14px;
+    }
+  }
+
+  .cashback-card {
+    &__items {
+      gap: 20px;
+    }
+
+    &__item {
+      @include flex-column;
+      justify-content: space-between;
+      height: auto;
+      max-height: 160px;
+      padding: 30px;
+
+      &-title {
+        font-size: 14px;
+        line-height: $line-height-20;
+        margin-bottom: 24px;
+      }
+
+      &-description {
+        font-size: 30px;
+        line-height: $line-height-30;
+      }
+    }
+  }
+
+  .rates-card {
+    &__items {
+      font-size: 14px;
+    }
+
+    &__item {
+      padding: 20px 0;
+    }
+  }
+
+  .faq {
+    &__title {
+      font-size: 28px;
+      margin-bottom: 24px;
+      line-height: $line-height-30;
+    }
+
+    &__items {
+      &:first-of-type {
+        margin-bottom: 24px;
+      }
+    }
+
+    &__item {
+      &-content {
+        padding: 26px;
+        padding-right: 34px;
+      }
+
+      &-answer {
+        padding: 0 26px;
+
+        &--active {
+          padding-top: 26px;
+          padding-bottom: 26px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 800px) {
@@ -1382,6 +1595,41 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .credit-card {
+    &__image {
+      max-width: 260px;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .prescoring {
+    padding: 26px;
+
+    &__main {
+      margin-bottom: 28px;
+    }
+
+    &__title {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .credit-card {
+    &__image {
+      max-width: 240px;
+    }
+  }
+
+  .prescoring-form {
+    &__field-label,
+    &__error {
+      font-size: 12px;
+    }
   }
 }
 
@@ -1432,6 +1680,114 @@ body {
 
     &__button {
       order: 2;
+    }
+  }
+
+  .credit-card {
+    position: relative;
+
+    &__info {
+      &-items {
+        max-width: 400px;
+      }
+    }
+
+    &__image {
+      position: absolute;
+      max-width: 190px;
+      right: 20px;
+      bottom: 20px;
+    }
+  }
+
+  .steps {
+    &__items {
+      gap: 26px;
+    }
+
+    &__item {
+      &-decorate {
+        &::after {
+          width: calc(100% - 60px);
+        }
+      }
+    }
+  }
+
+  .prescoring {
+    padding: 22px;
+
+    &__content {
+      padding-right: 22px;
+    }
+
+    &__header {
+      margin-bottom: 22px;
+    }
+
+    &__title {
+      font-size: 20px;
+      line-height: $line-height-20;
+    }
+
+    &__step {
+      font-size: 12px;
+    }
+
+    &__amount {
+      font-size: 12px;
+      &-input {
+        &::-webkit-slider-thumb {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    &__chosen-amount {
+      padding-left: 22px;
+
+      &-title {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      &-value {
+        width: 160px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .prescoring-form {
+    &__contact-info {
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(calc(25% - 12px * 3), 1fr)
+      );
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    &__button {
+      @include button-size-mobile-loan;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .credit-card {
+    &__image {
+      display: none;
+    }
+  }
+
+  .prescoring-form {
+    &__contact-info {
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(calc(33.3% - 12px * 2), 1fr)
+      );
     }
   }
 }
@@ -1528,14 +1884,14 @@ body {
       margin-bottom: 14px;
     }
 
-    &__subtitle {
+    &__subtitle,
+    &__currencies {
       margin-bottom: 25px;
     }
 
     &__currencies {
       grid-template-columns: repeat(2, 1fr);
       gap: 15px;
-      margin-bottom: 25px;
       max-width: 200px;
     }
 
@@ -1568,10 +1924,7 @@ body {
   }
 
   .news-feed {
-    &__title {
-      line-height: $line-height-30;
-    }
-
+    &__title,
     &__description {
       line-height: $line-height-30;
     }
@@ -1610,10 +1963,10 @@ body {
     &__support {
       font-size: 20px;
       line-height: $line-height-25;
-      margin-bottom: 15px;
     }
 
-    &__title {
+    &__title,
+    &__support {
       margin-bottom: 15px;
     }
 
@@ -1654,6 +2007,303 @@ body {
 
     &__cookies-info {
       font-size: 12px;
+    }
+  }
+
+  // Loan page
+  .credit-card {
+    padding: 24px;
+    justify-content: center;
+    margin-bottom: 28px;
+
+    &__info-wrapper {
+      padding-right: 0;
+    }
+
+    &__title,
+    &__description,
+    &__info-items {
+      margin-bottom: 24px;
+    }
+
+    &__title {
+      font-size: 30px;
+      line-height: $line-height-30;
+    }
+
+    &__description {
+      font-size: 12px;
+    }
+
+    &__info {
+      &-item {
+        &-title {
+          font-size: 14px;
+          line-height: 14px;
+          margin-bottom: 6px;
+        }
+
+        &-description {
+          font-size: 12px;
+        }
+
+        &-tooltip {
+          max-width: 130px;
+          padding: 6px;
+          left: -6px;
+          top: 42px;
+        }
+      }
+    }
+
+    &__button {
+      align-self: flex-end;
+      @include button-size-mobile-loan;
+    }
+  }
+
+  .card-feature {
+    margin-bottom: 24px;
+
+    &__nav {
+      margin-bottom: 24px;
+      font-size: 14px;
+
+      &-items {
+        justify-content: space-between;
+        padding-bottom: 8px;
+      }
+
+      &-link {
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  .about-card {
+    &__items {
+      gap: 24px;
+    }
+
+    &__item {
+      padding: 20px;
+      height: auto;
+
+      &-mobile-wrapper {
+        @include flex-section;
+        margin-bottom: 10px;
+      }
+
+      &-icon {
+        max-width: 30px;
+        max-height: 30px;
+        margin-right: 10px;
+      }
+
+      &-title {
+        font-size: 16px;
+        text-align: right;
+      }
+
+      &-description {
+        align-self: flex-end;
+        text-align: right;
+        font-size: 12px;
+        max-width: 380px;
+      }
+    }
+  }
+
+  .steps {
+    margin-bottom: 30px;
+
+    &__title {
+      font-size: 22px;
+      line-height: $line-height-25;
+      margin-bottom: 12px;
+    }
+
+    &__item {
+      &-number {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+
+      &-decorate {
+        margin-bottom: 10px;
+
+        &::after {
+          width: calc(100% - 50px);
+        }
+      }
+
+      &-text-content {
+        font-size: 12px;
+        line-height: $line-height-20;
+      }
+    }
+  }
+
+  .prescoring {
+    margin-bottom: 40px;
+    padding: 20px;
+
+    &__main {
+      margin-bottom: 30px;
+    }
+
+    &__content {
+      padding-right: 20px;
+    }
+
+    &__header {
+      margin-bottom: 20px;
+    }
+
+    &__title {
+      font-size: 16px;
+      max-width: 100px;
+    }
+
+    &__amount {
+      padding: 16px;
+
+      &-label,
+      &-value {
+        margin-bottom: 16px;
+      }
+
+      &-input {
+        &::-webkit-slider-thumb,
+        &::-moz-range-thumb {
+          width: 16px;
+          height: 16px;
+        }
+
+        &::before {
+          width: calc((100% - 16px) * (var(--amount) / (600000 - 15000)));
+        }
+      }
+    }
+
+    &__chosen-amount {
+      padding-left: 20px;
+
+      &-title {
+        font-size: 16px;
+        margin-bottom: 22px;
+      }
+
+      &-value {
+        width: 140px;
+      }
+    }
+  }
+
+  .prescoring-form {
+    &__title {
+      font-size: 16px;
+      line-height: 16px;
+      margin-bottom: 18px;
+    }
+
+    &__contact-info {
+      grid-template-columns: repeat(auto-fill, minmax(calc(50% - 14px), 1fr));
+      gap: 14px;
+    }
+
+    &__field {
+      &-label {
+        margin-bottom: 6px;
+      }
+
+      &-input,
+      &-select {
+        padding: 6px;
+        &--error,
+        &--success {
+          background-position: right 8px center;
+          background-size: 14px 14px;
+
+          &[name='dateOfBirth'] {
+            background-position: right 26px center;
+          }
+        }
+      }
+    }
+  }
+
+  .cashback-card {
+    &__item {
+      &-title {
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      &-description {
+        font-size: 24px;
+        line-height: $line-height-30;
+      }
+    }
+  }
+
+  .rates-card {
+    &__items {
+      font-size: 12px;
+    }
+
+    &__item {
+      padding: 18px 0;
+
+      &-title {
+        flex: 1 1 36%;
+        margin-right: 20px;
+      }
+
+      &-description {
+        flex: 1 1 64%;
+        color: $cashback-card-text-color;
+      }
+    }
+  }
+
+  .faq {
+    &__title {
+      font-size: 22px;
+      line-height: 22px;
+    }
+
+    &__items:first-of-type,
+    &__title {
+      margin-bottom: 18px;
+    }
+
+    &__item {
+      &-content {
+        padding: 20px 24px;
+      }
+
+      &-question {
+        font-size: 14px;
+        line-height: $line-height-20;
+        margin-right: 20px;
+      }
+
+      &-arrow {
+        max-width: 10px;
+      }
+
+      &-answer {
+        font-size: 14px;
+        line-height: $line-height-20;
+        padding: 0 24px;
+
+        &--active {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
     }
   }
 }
