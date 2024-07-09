@@ -1,6 +1,6 @@
-import { useField } from 'formik'
 import React from 'react'
-import { Label } from './FormLabel'
+import { useField } from 'formik'
+import { Label } from './FormLabel/FormLabel'
 
 type Option = {
   value: string
@@ -27,7 +27,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   const [field, meta] = useField(name)
 
   return (
-    <div className={`${className}__field`}>
+    <li className={`${className}__field`}>
       <Label
         htmlFor={id}
         text={label}
@@ -35,18 +35,18 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         className={`${className}__field-label`}
       />
       <select id={id} {...field} className={`${className}__field-select`}>
-        {options.map((option) => (
+        {options.map(({ value, label }) => (
           <option
-            key={option.value}
-            value={option.value}
+            key={value}
+            value={value}
             className={`${className}__field-option`}>
-            {option.label}
+            {label}
           </option>
         ))}
       </select>
       {meta.touched && meta.error ? (
         <div className={`${className}__error`}>{meta.error}</div>
       ) : null}
-    </div>
+    </li>
   )
 }

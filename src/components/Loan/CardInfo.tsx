@@ -4,10 +4,11 @@ import { cardInfoData } from 'data/cardInfoData'
 import React from 'react'
 
 export const CardInfo: React.FC = () => {
-  const scrollToPrescoring = () => {
-    const prescoring = document.getElementById('prescoring')
-    if (prescoring) {
-      const yOffset = prescoring.getBoundingClientRect().top + window.scrollY
+  const buttonscrollTo = () => {
+    const tariffSelection = document.getElementById('tariff-selection')
+    if (tariffSelection) {
+      const yOffset =
+        tariffSelection.getBoundingClientRect().top + window.scrollY
       window.scrollTo({ top: yOffset, behavior: 'smooth' })
     }
   }
@@ -35,7 +36,7 @@ export const CardInfo: React.FC = () => {
         <Button
           buttonText={'Apply for card'}
           className="credit-card__button"
-          onClick={scrollToPrescoring}></Button>
+          onClick={buttonscrollTo}></Button>
       </div>
 
       <img

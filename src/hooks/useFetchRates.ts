@@ -5,11 +5,14 @@ import { Rates } from 'types/Rates'
 export const useFetchRates = (currencies: string[]) => {
   const [rates, setRates] = useState<Rates>({})
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
 
   const cacheKey = 'currencyRates'
 
   const getRates = useCallback(async () => {
     try {
+      setLoading(true)
+
       const fetchedRates: Rates = {}
       for (const currency of currencies) {
         const rate = await fetchCurrencyRate({ fromCurrency: currency })
@@ -21,8 +24,10 @@ export const useFetchRates = (currencies: string[]) => {
       }
       localStorage.setItem(cacheKey, JSON.stringify(fetchedRates))
       setRates(fetchedRates)
+      setLoading(false)
     } catch (err) {
       setError('Failed to fetch currency rates')
+      setLoading(false)
     }
   }, [currencies])
 
@@ -39,5 +44,5 @@ export const useFetchRates = (currencies: string[]) => {
     return () => clearInterval(intervalId)
   }, [getRates])
 
-  return { rates, error }
+  return { rates, error, loading }
 }

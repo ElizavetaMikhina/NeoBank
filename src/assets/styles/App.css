@@ -717,14 +717,14 @@ body {
 .prescoring {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 8px 0px rgba(0, 0, 0, 0.0784313725);
   border-radius: 28px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
   margin-bottom: 96px;
   background-color: #ffffff;
   border-radius: 28px;
   padding: 32px;
   min-height: 584px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 700;
-  font-style: normal;
 }
 .prescoring__main {
   display: flex;
@@ -855,12 +855,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-.prescoring-form__field-label {
-  margin-bottom: 8px;
-}
-.prescoring-form__field-label--required {
-  color: #ff0000;
-}
 .prescoring-form__field-input, .prescoring-form__field-select {
   padding: 8px;
   border: 1px solid rgba(128, 128, 128, 0.2);
@@ -888,6 +882,15 @@ body {
 }
 .prescoring-form__field-input--error[name=dateOfBirth], .prescoring-form__field-input--success[name=dateOfBirth], .prescoring-form__field-select--error[name=dateOfBirth], .prescoring-form__field-select--success[name=dateOfBirth] {
   background-position: right 30px center;
+}
+.prescoring-form__field-select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("../icons/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px 6px;
 }
 .prescoring-form__error {
   color: red;
@@ -1014,6 +1017,164 @@ body {
 }
 .faq__item-question.active .faq__item-answer--active-arrow {
   transform: scaleY(1);
+}
+
+.tariff-selection {
+  display: flex;
+  justify-content: space-between;
+  gap: 38px;
+  margin-bottom: 93px;
+}
+
+.tariff-card {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 8px 0px rgba(0, 0, 0, 0.0784313725);
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.02em;
+  height: 602px;
+  width: 297px;
+  padding: 32px;
+  align-items: center;
+  background-color: #ffffff;
+}
+.tariff-card__image {
+  max-width: 150px;
+  max-height: 150px;
+  margin-bottom: 32px;
+}
+.tariff-card__detail {
+  text-align: center;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tariff-card__detail:last-child {
+  margin-bottom: 90px;
+}
+.tariff-card__detail-image {
+  margin-left: 8px;
+}
+.tariff-card:hover {
+  border: 2px solid #003cff;
+}
+.tariff-card__button {
+  width: 148px;
+  height: 48px;
+  padding: 16px;
+  border-radius: 8px;
+}
+.tariff-card__button-container {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.application-form {
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 0px 8px 0px rgba(0, 0, 0, 0.0784313725);
+  border-radius: 28px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 96px;
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 32px;
+  min-height: 584px;
+}
+.application-form__title {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 30px;
+  margin-right: 80px;
+}
+.application-form__title-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.application-form__group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.application-form__group > * {
+  flex: 1 1 calc(33% - 8px);
+}
+.application-form__group:first-of-type {
+  margin-bottom: 32px;
+}
+.application-form__group:last-of-type {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(33% - 48px), 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.application-form__subtitle {
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 32px;
+}
+.application-form__field {
+  display: flex;
+  flex-direction: column;
+}
+.application-form__field-input, .application-form__field-select {
+  padding: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  background: #f9f5e3;
+  border-radius: 6px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.application-form__field-input:focus, .application-form__field-select:focus {
+  outline: none;
+  border: 2px solid #5b35d5;
+}
+.application-form__field-input--error, .application-form__field-select--error {
+  border: 2px solid #ff5631;
+  background-image: url("../icons/cross.svg");
+}
+.application-form__field-input--success, .application-form__field-select--success {
+  background-image: url("../icons/check-mark.svg");
+}
+.application-form__field-input--error, .application-form__field-input--success, .application-form__field-select--error, .application-form__field-select--success {
+  background-repeat: no-repeat;
+  background-position: right 19px center;
+  background-size: 18px 18px;
+}
+.application-form__field-input--error[name=dateOfBirth], .application-form__field-input--success[name=dateOfBirth], .application-form__field-select--error[name=dateOfBirth], .application-form__field-select--success[name=dateOfBirth] {
+  background-position: right 30px center;
+}
+.application-form__field-select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("../icons/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px 6px;
+}
+.application-form__error {
+  color: red;
+  font-size: 16px;
+}
+.application-form__button {
+  width: 148px;
+  height: 48px;
+  padding: 16px;
+  border-radius: 8px;
+}
+.application-form__button-container {
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 @media (max-width: 1210px) {

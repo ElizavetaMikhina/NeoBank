@@ -1,9 +1,10 @@
 // Для получения курса валют
 export const CURRENCY_API_KEY =
-  '652d2784e6msh8adc1b7bcf4953ap1053e4jsnc10086b8288b'
+  '4341920be8msh1617c64dbd66e18p1652d9jsn1fb0ab9d6f1d'
 export const CURRENCY_API_URL =
-  'https://currency-exchange.p.rapidapi.com/exchange'
-export const CURRENCY_API_HOST = 'currency-exchange.p.rapidapi.com'
+  'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest'
+export const CURRENCY_API_HOST =
+  'currency-conversion-and-exchange-rates.p.rapidapi.com'
 
 // Для получения новостей
 export const NEWS_API_KEY = 'd463873c1b434fdca20b81b5ca0770f8'

@@ -1,12 +1,17 @@
-import { validateEmail } from '@utils/validation'
+import { validateEmail } from '@utils/validateEmail'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import {
+  activateMockEmailServer,
+  deactivateMockEmailServer
+} from '../mocks/mockServer'
 
 export const useForm = () => {
   const [email, setEmail] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     const subscribed = localStorage.getItem('subscribed')
@@ -21,10 +26,10 @@ export const useForm = () => {
   }
 
   const subscribeToNewsletter = async () => {
+    activateMockEmailServer()
+    setLoading(true)
     try {
-      const response = await axios.post('http://localhost:3001/subscribers', {
-        email
-      })
+      const response = await axios.post('/email', { email })
       console.log('Server response:', response.data)
       localStorage.setItem('subscribed', 'true')
       setSubmitted(true)
@@ -33,6 +38,9 @@ export const useForm = () => {
     } catch (error) {
       console.error('Error subscribing:', error)
       setError('Failed to subscribe. Please try again later.')
+    } finally {
+      setLoading(false)
+      deactivateMockEmailServer()
     }
   }
 
@@ -61,6 +69,7 @@ export const useForm = () => {
     submitted,
     isSubscribed,
     error,
+    loading,
     handleSubmit,
     handleChange,
     clearError

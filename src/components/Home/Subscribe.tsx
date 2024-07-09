@@ -1,3 +1,4 @@
+import { ErrorLoadingLayout } from '@components/common/ErrorLoadingLayout/ErrorLoadingLayout'
 import { useForm } from '@hooks/useForm'
 
 export const Subscribe = () => {
@@ -5,6 +6,7 @@ export const Subscribe = () => {
     email,
     submitted,
     error,
+    loading,
     handleSubmit,
     handleChange,
     clearError,
@@ -16,59 +18,61 @@ export const Subscribe = () => {
       <p className="subscribe__support">Support</p>
       <h2 className="subscribe__title">Subscribe Newsletter & get</h2>
       <p className="subscribe__subtitle">Bank News</p>
-      <form className="subscribe__form" onSubmit={handleSubmit}>
-        {!isSubscribed && (
-          <div className="subscribe__input-wrapper">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="subscribe__input"
-              value={email ?? ''}
-              onChange={handleChange}
-              aria-label="Your email"
-              disabled={isSubscribed}
-            />
-            <img
-              src="/images/icons/email.svg"
-              alt=""
-              className="subscribe__input-icon"
-            />
-            <button
-              type="submit"
-              className="subscribe__button"
-              disabled={isSubscribed}>
-              <img
-                src="/images/icons/telegram.svg"
-                alt=""
-                className="subscribe__button-icon"
+      <ErrorLoadingLayout loading={loading}>
+        <form className="subscribe__form" onSubmit={handleSubmit}>
+          {!isSubscribed && (
+            <div className="subscribe__input-wrapper">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="subscribe__input"
+                value={email ?? ''}
+                onChange={handleChange}
+                aria-label="Your email"
+                disabled={isSubscribed}
               />
-              Subscribe
-            </button>
-          </div>
-        )}
+              <img
+                src="/images/icons/email.svg"
+                alt=""
+                className="subscribe__input-icon"
+              />
+              <button
+                type="submit"
+                className="subscribe__button"
+                disabled={isSubscribed}>
+                <img
+                  src="/images/icons/telegram.svg"
+                  alt=""
+                  className="subscribe__button-icon"
+                />
+                Subscribe
+              </button>
+            </div>
+          )}
 
-        {error && (
-          <div className="subscribe__error">
-            <span>{error}</span>
-            <button
-              type="button"
-              className="subscribe__error-close"
-              onClick={clearError}>
-              ×
-            </button>
-          </div>
-        )}
+          {error && (
+            <div className="subscribe__error">
+              <span>{error}</span>
+              <button
+                type="button"
+                className="subscribe__error-close"
+                onClick={clearError}>
+                ×
+              </button>
+            </div>
+          )}
 
-        {submitted && !error && (
-          <p className="subscribe__success">Thank you for subscribing!</p>
-        )}
+          {submitted && !error && (
+            <p className="subscribe__success">Thank you for subscribing!</p>
+          )}
 
-        {isSubscribed && (
-          <p className="subscribe__info">
-            You are already subscribed to the bank&apos;s newsletter!
-          </p>
-        )}
-      </form>
+          {isSubscribed && (
+            <p className="subscribe__info">
+              You are already subscribed to the bank&apos;s newsletter!
+            </p>
+          )}
+        </form>
+      </ErrorLoadingLayout>
     </section>
   )
 }

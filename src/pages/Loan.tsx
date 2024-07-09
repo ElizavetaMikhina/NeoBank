@@ -1,7 +1,7 @@
 import { CardFeatures } from '@components/Loan/CardFeatures/CardFeatures'
 import { CardInfo } from '@components/Loan/CardInfo'
-import { Prescoring } from '@components/Loan/Prescoring'
 import { Steps } from '@components/Loan/Steps'
+import { TariffSelection } from '@components/Loan/TariffSelection'
 
 export const Loan = () => {
   return (
@@ -9,7 +9,7 @@ export const Loan = () => {
       <CardInfo />
       <CardFeatures />
       <Steps />
-      <Prescoring />
+      <TariffSelection />
     </>
   )
 }

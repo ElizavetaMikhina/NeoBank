@@ -1,6 +1,6 @@
 import { useField } from 'formik'
 import React from 'react'
-import { Label } from './FormLabel'
+import { Label } from './FormLabel/FormLabel'
 
 type FormInputProps = {
   id: string
@@ -26,7 +26,7 @@ export const FormInput: React.FC<FormInputProps> = ({
   const isValid = meta.touched && !meta.error
 
   return (
-    <div className={`${className}__field`}>
+    <li className={`${className}__field`}>
       <Label
         htmlFor={id}
         text={label}
@@ -43,6 +43,6 @@ export const FormInput: React.FC<FormInputProps> = ({
       {meta.touched && meta.error ? (
         <div className={`${className}__error`}>{meta.error}</div>
       ) : null}
-    </div>
+    </li>
   )
 }

@@ -45,6 +45,7 @@ export const fetchNews = async (
     }
 
     console.log('Fetching news from API...')
+
     const response = await axios.get(NEWS_API_URL, {
       params: {
         country: 'us',
@@ -56,11 +57,11 @@ export const fetchNews = async (
 
     const filteredArticles: TFetchNewsArticleParams[] =
       response.data.articles.filter(
-        (article: ApiNewsArticle) =>
-          article.urlToImage &&
-          article.description &&
-          !article.description.includes('<') &&
-          isValidImageUrl(article.urlToImage)
+        ({ urlToImage, description }: ApiNewsArticle) =>
+          urlToImage &&
+          description &&
+          !description.includes('<') &&
+          isValidImageUrl(urlToImage)
       )
 
     sessionStorage.setItem(

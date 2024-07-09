@@ -14,14 +14,14 @@ export const FaqCard: React.FC = () => {
   const handleClickIssuing = (index: number) => {
     setActiveIndexIssuing((prevIndex) => (prevIndex === index ? null : index))
     if (activeIndexUsing !== null) {
-      setActiveIndexUsing(null) // Закрыть активный элемент во втором списке при клике в первом
+      setActiveIndexUsing(null)
     }
   }
 
   const handleClickUsing = (index: number) => {
     setActiveIndexUsing((prevIndex) => (prevIndex === index ? null : index))
     if (activeIndexIssuing !== null) {
-      setActiveIndexIssuing(null) // Закрыть активный элемент в первом списке при клике во втором
+      setActiveIndexIssuing(null)
     }
   }
 

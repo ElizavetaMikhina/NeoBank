@@ -723,13 +723,7 @@ body {
 }
 
 .prescoring {
-  @include element-shadow-border-radius;
-  margin-bottom: 96px;
-  background-color: $white-background-color;
-  border-radius: 28px;
-  padding: $standard-padding;
-  min-height: 584px;
-  @include ubuntu-bold;
+  @include form-background;
 
   &__main {
     @include flex-section;
@@ -863,48 +857,13 @@ body {
   &__field {
     @include flex-column;
 
-    &-label {
-      margin-bottom: 8px;
-
-      &--required {
-        color: #ff0000;
-      }
-    }
-
     &-input,
     &-select {
-      padding: 8px;
-      border: 1px solid #80808033;
-      background: #f9f5e3;
-      border-radius: 6px;
-      height: 40px;
-      font-weight: 400;
-      font-size: 14px;
+      @include input-select-styles;
+    }
 
-      &:focus {
-        outline: none;
-        border: 2px solid $amount-border;
-      }
-
-      &--error {
-        border: 2px solid #ff5631;
-        background-image: url('../icons/cross.svg');
-      }
-
-      &--success {
-        background-image: url('../icons/check-mark.svg');
-      }
-
-      &--error,
-      &--success {
-        background-repeat: no-repeat;
-        background-position: right 19px center;
-        background-size: 18px 18px;
-
-        &[name='dateOfBirth'] {
-          background-position: right 30px center;
-        }
-      }
+    &-select {
+      @include select-arrow;
     }
   }
 
@@ -1061,6 +1020,125 @@ body {
         }
       }
     }
+  }
+}
+
+.tariff-selection {
+  @include flex-section;
+  gap: 38px;
+  margin-bottom: 93px;
+}
+
+.tariff-card {
+  @include element-shadow-border-radius;
+  @include flex-column;
+  letter-spacing: $letter-spacing-slight;
+  height: 602px;
+  width: 297px;
+  padding: 32px;
+  align-items: center;
+  background-color: $white-background-color;
+
+  &__image {
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__detail {
+    text-align: center;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 90px;
+    }
+
+    &-image {
+      margin-left: 8px;
+    }
+  }
+
+  &:hover {
+    border: 2px solid #003cff;
+  }
+
+  &__button {
+    @include form-button;
+  }
+}
+
+// Application
+.application-form {
+  @include form-background;
+
+  &__title {
+    @include ubuntu-bold;
+    font-size: 30px;
+    line-height: 30px;
+    margin-right: 80px;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1 calc(33% - 8px);
+    }
+
+    &:first-of-type {
+      margin-bottom: $standard-margin-bottom;
+    }
+
+    &:last-of-type {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(calc(33% - 16px * 3), 1fr)
+      );
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__field {
+    @include flex-column;
+
+    &-input,
+    &-select {
+      @include input-select-styles;
+    }
+
+    &-select {
+      @include select-arrow;
+    }
+  }
+
+  &__error {
+    color: red;
+    font-size: $content-font-size;
+  }
+
+  &__button {
+    @include form-button;
   }
 }
 
