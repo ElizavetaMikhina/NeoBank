@@ -14,24 +14,18 @@ type FetchCurrencyRateParams = {
 
 export const fetchCurrencyRate = async ({
   fromCurrency,
-  toCurrency = 'RUB'
+  toCurrency = 'RUB',
+  amount = '1.0'
 }: FetchCurrencyRateParams): Promise<FetchCurrencyRateResponse> => {
   try {
-    const options = {
-      method: 'GET',
-      url: CURRENCY_API_URL,
-      params: {
-        from: fromCurrency,
-        to: toCurrency
-      },
+    const response = await axios.get(CURRENCY_API_URL, {
+      params: { to: toCurrency, from: fromCurrency, q: amount },
       headers: {
         'x-rapidapi-key': CURRENCY_API_KEY,
         'x-rapidapi-host': CURRENCY_API_HOST
       }
-    }
-    const response = await axios.request(options)
-
-    return response.data.rates[fromCurrency]
+    })
+    return response.data
   } catch (error) {
     console.error(
       `Ошибка при получении курса ${fromCurrency}: ${(error as Error).message}`
