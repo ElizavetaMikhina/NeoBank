@@ -1,5 +1,6 @@
 {
   "name": "neobank",
+  "homepage": "https://ElizavetaMikhina.github.io/NeoBank",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,6 +23,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-app-rewired eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
@@ -51,6 +54,7 @@
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.1.3",
+    "gh-pages": "^6.1.1",
     "node-sass": "7.0.3",
     "prettier": "3.3.1",
     "react-app-alias": "2.2.2",
