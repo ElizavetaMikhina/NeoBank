@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/NeoBank/static/css/main.59c7e163.css",
+    "main.js": "/NeoBank/static/js/main.d6e1fc12.js",
+    "static/media/axios.cjs": "/NeoBank/static/media/axios.cd0a976556d6411f77a7.cjs",
+    "static/media/cross.svg": "/NeoBank/static/media/cross.221f78ca37d3b706cbc6.svg",
+    "index.html": "/NeoBank/index.html",
+    "static/media/check-mark.svg": "/NeoBank/static/media/check-mark.c03b74cf7c915daf4853.svg",
+    "static/media/arrow.svg": "/NeoBank/static/media/arrow.a160a5f20f541a1d6d7b.svg",
+    "main.59c7e163.css.map": "/NeoBank/static/css/main.59c7e163.css.map",
+    "main.d6e1fc12.js.map": "/NeoBank/static/js/main.d6e1fc12.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59c7e163.css",
+    "static/js/main.d6e1fc12.js"
+  ]
+}
