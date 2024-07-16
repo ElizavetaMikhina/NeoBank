@@ -1,10 +1,6 @@
 import { validateEmail } from '@utils/validateEmail'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import {
-  activateMockEmailServer,
-  deactivateMockEmailServer
-} from '../mocks/mockServer'
 
 export const useForm = () => {
   const [email, setEmail] = useState<string | null>(null)
@@ -26,10 +22,11 @@ export const useForm = () => {
   }
 
   const subscribeToNewsletter = async () => {
-    activateMockEmailServer()
     setLoading(true)
     try {
-      const response = await axios.post('/email', { email })
+      const response = await axios.post('http://localhost:8080/email', {
+        email
+      })
       console.log('Server response:', response.data)
       localStorage.setItem('subscribed', 'true')
       setSubmitted(true)
@@ -40,7 +37,6 @@ export const useForm = () => {
       setError('Failed to subscribe. Please try again later.')
     } finally {
       setLoading(false)
-      deactivateMockEmailServer()
     }
   }
 
