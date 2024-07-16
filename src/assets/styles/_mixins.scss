@@ -36,6 +36,16 @@
   border-radius: 16px;
 }
 
+@mixin button-size-desktop-error {
+  font-weight: bold;
+  max-width: 192px;
+  padding: 11px 64.5px;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.02;
+  border-radius: 8px;
+}
+
 @mixin button-size-desktop-loan {
   max-width: 145px;
   padding: 16px;

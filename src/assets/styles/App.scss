@@ -1142,6 +1142,37 @@ body {
   }
 }
 
+// 404_Error
+.not-found {
+  @include flex-section;
+  @include ubuntu-medium;
+
+  &__text-content {
+    @include flex-column;
+    justify-content: center;
+    gap: $standard-gap;
+  }
+
+  &__title {
+    @include ubuntu-bold;
+  }
+
+  &__title,
+  &__subtitle {
+    font-size: $title-font-size;
+    line-height: 34px;
+  }
+
+  &__description {
+    font-size: $content-font-size;
+    line-height: 18px;
+  }
+
+  &__button {
+    @include button-size-desktop-error;
+  }
+}
+
 @media (max-width: 1210px) {
   .about-card {
     &__item {

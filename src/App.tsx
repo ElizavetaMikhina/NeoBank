@@ -5,6 +5,7 @@ import { Footer } from '@components/common/Footer'
 import { Home } from '@pages/Home'
 import { Loan } from '@pages/Loan'
 import { Application } from '@pages/Application'
+import { NotFound } from '@pages/NotFound'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/application" element={<Application />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
