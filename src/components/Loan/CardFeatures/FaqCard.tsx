@@ -1,4 +1,4 @@
-import { FaqItem } from '@components/ui/FaqItem'
+import { FaqItem } from '@components/shared/FaqItem'
 import {
   FaqIssuingReceivingData,
   FaqUsingCardData

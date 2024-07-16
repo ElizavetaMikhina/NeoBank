@@ -1,7 +1,7 @@
 import { useFetchNews } from '@hooks/useFetchNews'
 import { NewsCard } from './NewsCard'
 import { useRef } from 'react'
-import { ButtonControls } from '@components/ui/ButtonControls'
+import { ButtonControls } from '@components/shared/ButtonControls'
 import { ErrorLoadingLayout } from '@components/common/ErrorLoadingLayout/ErrorLoadingLayout'
 
 export const NewsFeed = () => {

@@ -17,9 +17,7 @@ export const Label: React.FC<LabelProps> = ({
   return (
     <label htmlFor={htmlFor} className={`${className} ${styles.label}`}>
       {text}
-      {required && (
-        <span className={`${className}--required ${styles.required}`}> *</span>
-      )}
+      {required && <span className={`${styles.required}`}> *</span>}
     </label>
   )
 }

@@ -1,5 +1,5 @@
-import { Button } from '@components/ui/Button/Button'
-import { CardInfoItem } from '@components/ui/CardInfoItem'
+import { Button } from '@components/shared/Button/Button'
+import { CardInfoItem } from '@components/shared/CardInfoItem'
 import { cardInfoData } from 'data/cardInfoData'
 import React from 'react'
 

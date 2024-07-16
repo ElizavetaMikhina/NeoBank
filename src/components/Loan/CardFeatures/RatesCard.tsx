@@ -1,4 +1,4 @@
-import { RatesCardItem } from '@components/ui/RatesCardItem'
+import { RatesCardItem } from '@components/shared/RatesCardItem'
 import { ratesCardData } from 'data/cardFeaturesData'
 
 export const RatesCard = () => {

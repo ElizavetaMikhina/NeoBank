@@ -1,5 +1,4 @@
-import { ApplicationForm } from '@components/Application/ApplicationForm'
-import React from 'react'
+import { ApplicationForm } from '@components/Application/ApplicationForm/ApplicationForm'
 
 export const Application = () => {
   return (

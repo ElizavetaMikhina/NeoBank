@@ -1,6 +1,6 @@
-import { Button } from '@components/ui/Button/Button'
-import { Logo } from '@components/ui/Logo'
-import { Navigation } from '@components/ui/Navigation'
+import { Button } from '@components/shared/Button/Button'
+import { Logo } from '@components/shared/Logo'
+import { Navigation } from '@components/shared/Navigation'
 import { navItemsHeader } from 'data/navItemsData'
 
 export const Header = () => {

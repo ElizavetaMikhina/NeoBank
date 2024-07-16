@@ -1,4 +1,4 @@
-import { AboutCardItem } from '@components/ui/AboutCardItem/AboutCardItem'
+import { AboutCardItem } from '@components/shared/AboutCardItem/AboutCardItem'
 import { aboutCardData } from 'data/cardFeaturesData'
 
 export const AboutCard = () => {

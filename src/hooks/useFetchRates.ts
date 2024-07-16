@@ -5,7 +5,7 @@ import { Rates } from 'types/Rates'
 export const useFetchRates = (currencies: string[]) => {
   const [rates, setRates] = useState<Rates>({})
   const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState(true)
 
   const cacheKey = 'currencyRates'
 

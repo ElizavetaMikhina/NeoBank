@@ -1,37 +1,16 @@
-import { Button } from '@components/ui/Button/Button'
-import { FormInput } from '@components/ui/Form/FormInput'
-import { FormSelect } from '@components/ui/Form/FormSelect'
-import { Spinner } from '@components/ui/Spinner/Spinner'
+import { Button } from '@components/shared/Button/Button'
+import { FormInput } from '@components/shared/Form/FormInput'
+import { FormSelect } from '@components/shared/Form/FormSelect'
+import { Spinner } from '@components/shared/Spinner/Spinner'
 import { formFieldsPrescoring } from 'data/formFieldsData'
 import { Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { validationSchemaPrescoring } from 'validations/validationSchemas'
-
-type FormValues = {
-  lastName: string
-  firstName: string
-  patronymic: string
-  email: string
-  dateOfBirth: string
-  passportSeries: string
-  passportNumber: string
-  term: string
-}
+import { FormValues, initialValues } from './prescoringFormInitialValues'
 
 export const PrescoringForm: React.FC = () => {
   const navigate = useNavigate()
-
-  const initialValues: FormValues = {
-    lastName: '',
-    firstName: '',
-    patronymic: '',
-    email: '',
-    dateOfBirth: '',
-    passportSeries: '',
-    passportNumber: '',
-    term: '6 months'
-  }
 
   const handleSubmit = async (
     values: FormValues,

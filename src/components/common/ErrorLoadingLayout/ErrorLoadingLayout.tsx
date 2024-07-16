@@ -1,4 +1,4 @@
-import { Spinner } from '@components/ui/Spinner/Spinner'
+import { Spinner } from '@components/shared/Spinner/Spinner'
 import React, { ReactNode } from 'react'
 import styles from './ErrorLoadingLayout.module.scss'
 

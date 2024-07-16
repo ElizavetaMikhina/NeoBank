@@ -1,6 +1,5 @@
 {
   "name": "neobank",
-  "homepage": "https://ElizavetaMikhina.github.io/NeoBank",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -23,8 +22,6 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-app-rewired eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",

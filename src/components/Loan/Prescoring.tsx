@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PrescoringForm } from './PrescoringForm'
+import { PrescoringForm } from './PrescoringForm/PrescoringForm'
 
 export const Prescoring: React.FC = () => {
   const [amount, setAmount] = useState<number>(150000)

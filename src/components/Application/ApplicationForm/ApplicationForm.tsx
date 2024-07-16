@@ -1,43 +1,16 @@
-import { Button } from '@components/ui/Button/Button'
-import { FormInput } from '@components/ui/Form/FormInput'
-import { FormSelect } from '@components/ui/Form/FormSelect'
-import { Spinner } from '@components/ui/Spinner/Spinner'
+import { Button } from '@components/shared/Button/Button'
+import { FormInput } from '@components/shared/Form/FormInput'
+import { FormSelect } from '@components/shared/Form/FormSelect'
+import { Spinner } from '@components/shared/Spinner/Spinner'
 import { formFieldsApplication } from 'data/formFieldsData'
 import { Form, Formik, FormikHelpers } from 'formik'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { validationSchemaApplication } from 'validations/validationSchemas'
-
-type FormValues = {
-  gender: string
-  maritalStatus: string
-  dependents: string
-  passportDate: string
-  divisionCode: string
-  employmentStatus: string
-  employerINN: string
-  salary: string
-  position: string
-  totalExperience: string
-  currentExperience: string
-}
+import { FormValues, initialValues } from './applicationFormInitialValues'
 
 export const ApplicationForm: React.FC = () => {
   const navigate = useNavigate()
-
-  const initialValues: FormValues = {
-    gender: 'Male',
-    maritalStatus: '',
-    dependents: 'None',
-    passportDate: '',
-    divisionCode: '',
-    employmentStatus: 'Employed',
-    employerINN: '',
-    salary: '',
-    position: 'Manager',
-    totalExperience: '',
-    currentExperience: ''
-  }
 
   const handleSubmit = async (
     values: FormValues,
@@ -98,7 +71,6 @@ export const ApplicationForm: React.FC = () => {
           </ul>
           <h3 className="application-form__subtitle">Employment</h3>
           <ul className="application-form__group">
-            {' '}
             {formFieldsApplication
               .slice(5)
               .map(

@@ -21,9 +21,11 @@ export const FormInput: React.FC<FormInputProps> = ({
   className,
   required
 }) => {
-  const [field, meta] = useField(name)
-  const isError = meta.touched && meta.error
-  const isValid = meta.touched && !meta.error
+  const [field, { touched, error }] = useField(name)
+  const isError = touched && error
+  const isValid = touched && !error
+
+  const inputClassName = `${className}__field-input ${isError ? `${className}__field-input--error` : isValid ? `${className}__field-input--success` : ''}`
 
   return (
     <li className={`${className}__field`}>
@@ -38,10 +40,10 @@ export const FormInput: React.FC<FormInputProps> = ({
         {...field}
         type={type}
         placeholder={placeholder}
-        className={`${className}__field-input ${isError ? `${className}__field-input--error` : isValid ? `${className}__field-input--success` : ''}`}
+        className={inputClassName}
       />
-      {meta.touched && meta.error ? (
-        <div className={`${className}__error`}>{meta.error}</div>
+      {touched && error ? (
+        <div className={`${className}__error`}>{error}</div>
       ) : null}
     </li>
   )

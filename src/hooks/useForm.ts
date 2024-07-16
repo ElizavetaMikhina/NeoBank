@@ -10,8 +10,8 @@ export const useForm = () => {
   const [email, setEmail] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [isSubscribed, setIsSubscribed] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
+  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const subscribed = localStorage.getItem('subscribed')

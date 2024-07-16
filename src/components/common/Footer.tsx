@@ -1,4 +1,4 @@
-import { Navigation } from '@components/ui/Navigation'
+import { Navigation } from '@components/shared/Navigation'
 import { navItemsFooter } from 'data/navItemsData'
 import { Link } from 'react-router-dom'
 

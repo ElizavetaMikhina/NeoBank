@@ -1,4 +1,4 @@
-import { NavItem } from '@components/ui/NavItem'
+import { NavItem } from '@components/shared/NavItem'
 import React, { useState } from 'react'
 
 type TNavigationProps = {
@@ -12,17 +12,13 @@ export const Navigation: React.FC<TNavigationProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
   const menuOpen = isMenuOpen ? 'open' : ''
 
   return (
     <nav className={className}>
       <button
         className={`${className}-burger ${menuOpen}`}
-        onClick={toggleMenu}>
+        onClick={() => setIsMenuOpen((prevState) => !prevState)}>
         ☰
       </button>
       <ul className={`${className}-list ${menuOpen}`}>

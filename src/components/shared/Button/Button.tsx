@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './Button.module.scss'
+import { ButtonType } from 'types/types'
 
 type TButtonProps = {
   buttonText: string
   className?: string
   disabled?: boolean
   onClick?: () => void
-  type?: 'button' | 'submit' | 'reset'
+  type?: ButtonType
 }
 
 export const Button: React.FC<TButtonProps> = ({
