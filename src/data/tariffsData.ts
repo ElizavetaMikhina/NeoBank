@@ -1,4 +1,4 @@
-export const tariffs = [
+export const tariffsData = [
   {
     id: 1,
     requestedAmount: '200 000 ₽',

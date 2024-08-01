@@ -4,22 +4,50 @@ import { FormSelect } from '@components/shared/Form/FormSelect'
 import { Spinner } from '@components/shared/Spinner/Spinner'
 import { formFieldsPrescoring } from 'data/formFieldsData'
 import { Form, Formik, FormikHelpers } from 'formik'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { validationSchemaPrescoring } from 'validations/validationSchemas'
 import { FormValues, initialValues } from './prescoringFormInitialValues'
+import axios from 'axios'
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { tariffsData } from 'data/tariffsData'
+import { setTopFourTariffs } from 'store/slices/tariffsSlice'
+import { setApplicationId, setCurrentStep } from 'store/slices/applicationSlice'
 
-export const PrescoringForm: React.FC = () => {
-  const navigate = useNavigate()
+type PrescoringFormProps = {
+  // eslint-disable-next-line no-unused-vars
+  setIsSubmitted: (isSubmitted: boolean) => void
+}
+
+export const PrescoringForm: React.FC<PrescoringFormProps> = ({
+  setIsSubmitted
+}) => {
+  const dispatch = useDispatch()
 
   const handleSubmit = async (
     values: FormValues,
     { setSubmitting }: FormikHelpers<FormValues>
   ) => {
     setSubmitting(true)
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      navigate('/application')
+      const updatedValues = {
+        ...values,
+        amount: 1000000,
+        term: Number(values.term)
+      }
+      const response = await axios.post(
+        'http://localhost:8080/application',
+        updatedValues
+      )
+      const { applicationId } = response.data
+
+      // console.log('Received applicationId:', applicationId)
+
+      dispatch(setApplicationId(applicationId))
+      dispatch(setTopFourTariffs(tariffsData))
+      dispatch(setCurrentStep(2))
+
+      setIsSubmitted(true)
     } catch (error) {
       console.error('Submission error:', error)
     } finally {

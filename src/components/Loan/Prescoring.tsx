@@ -1,8 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PrescoringForm } from './PrescoringForm/PrescoringForm'
+import { TariffSelection } from './TariffSelection'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  initializeApplicationState,
+  setTariffSelected
+} from 'store/slices/applicationSlice'
+import { setTopFourTariffs } from 'store/slices/tariffsSlice'
+import { RootState } from 'store/store'
 
 export const Prescoring: React.FC = () => {
+  const dispatch = useDispatch()
   const [amount, setAmount] = useState<number>(150000)
+  const { isTariffSelected } = useSelector(
+    (state: RootState) => state.application
+  )
+
+  useEffect(() => {
+    dispatch(initializeApplicationState())
+  }, [dispatch])
+
+  useEffect(() => {
+    const storedTariffs = localStorage.getItem('topFourTariffs')
+    if (storedTariffs) {
+      dispatch(setTopFourTariffs(JSON.parse(storedTariffs)))
+    }
+  }, [dispatch])
+
+  if (isTariffSelected) {
+    return <TariffSelection />
+  }
 
   return (
     <section id="prescoring" className="prescoring">
@@ -48,7 +75,13 @@ export const Prescoring: React.FC = () => {
         </div>
       </div>
 
-      <PrescoringForm />
+      <PrescoringForm
+        setIsSubmitted={(submitted: boolean) => {
+          if (submitted) {
+            dispatch(setTariffSelected(true))
+          }
+        }}
+      />
     </section>
   )
 }

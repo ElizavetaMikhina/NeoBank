@@ -3,7 +3,7 @@ import { useField } from 'formik'
 import { Label } from './FormLabel/FormLabel'
 
 type Option = {
-  value: string
+  value: string | number
   label: string
 }
 

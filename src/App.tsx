@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/loan" element={<Loan />} />
-          <Route path="/application" element={<Application />} />
+          <Route path="/loan/:applicationId" element={<Application />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

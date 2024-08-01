@@ -2,6 +2,7 @@ import { Button } from '@components/shared/Button/Button'
 import React from 'react'
 
 type TariffCardProps = {
+  id: number
   requestedAmount: string
   totalAmount: string
   term: string
@@ -9,11 +10,13 @@ type TariffCardProps = {
   rate: string
   insuranceIncluded: boolean
   salaryClient: boolean
-  onSelect: () => void
+  // eslint-disable-next-line no-unused-vars
+  onSelect: (id: number) => void
   className?: string
 }
 
 export const TariffCard: React.FC<TariffCardProps> = ({
+  id,
   requestedAmount,
   totalAmount,
   term,
@@ -76,7 +79,7 @@ export const TariffCard: React.FC<TariffCardProps> = ({
       </div>
 
       <Button
-        onClick={onSelect}
+        onClick={() => onSelect(id)}
         buttonText="Select"
         className={`${className}__button`}
       />

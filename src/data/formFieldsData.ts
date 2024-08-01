@@ -1,9 +1,9 @@
 export const selectFieldsPrescoring = {
   options: [
-    { value: '6 months', label: '6 months' },
-    { value: '12 months', label: '12 months' },
-    { value: '18 months', label: '18 months' },
-    { value: '24 months', label: '24 months' }
+    { value: 6, label: '6 months' },
+    { value: 12, label: '12 months' },
+    { value: 18, label: '18 months' },
+    { value: 24, label: '24 months' }
   ]
 }
 
@@ -25,8 +25,8 @@ export const formFieldsPrescoring = [
     required: true
   },
   {
-    id: 'patronymic',
-    name: 'patronymic',
+    id: 'middleName',
+    name: 'middleName',
     label: 'Your patronymic',
     type: 'text',
     placeholder: 'For Example Victorovich',
@@ -48,8 +48,8 @@ export const formFieldsPrescoring = [
     required: true
   },
   {
-    id: 'dateOfBirth',
-    name: 'dateOfBirth',
+    id: 'birthdate',
+    name: 'birthdate',
     label: 'Your date of birth',
     type: 'date',
     placeholder: 'Select Date and Time',

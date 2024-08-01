@@ -9,14 +9,14 @@ export const validationSchemaPrescoring = Yup.object({
   firstName: Yup.string()
     .matches(nameValidation, 'Cannot contain numbers or symbols')
     .required('Enter your first name'),
-  patronymic: Yup.string().matches(
+  middleName: Yup.string().matches(
     nameValidation,
     'Cannot contain numbers or symbols'
   ),
   email: Yup.string()
     .email('Incorrect email address')
     .required('Enter your email'),
-  dateOfBirth: Yup.date()
+  birthdate: Yup.date()
     .max(
       new Date(Date.now() - 18 * 365 * 24 * 60 * 60 * 1000),
       'Must be 18 years or older'
