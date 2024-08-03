@@ -34,7 +34,11 @@ export const FormSelect: React.FC<FormSelectProps> = ({
         required={required}
         className={`${className}__field-label`}
       />
-      <select id={id} {...field} className={`${className}__field-select`}>
+      <select
+        id={id}
+        {...field}
+        className={`${className}__field-select`}
+        value={field.value || ''}>
         {options.map(({ value, label }) => (
           <option
             key={value}

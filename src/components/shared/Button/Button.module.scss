@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables';
 @import '../../../assets/styles/fonts';
 
-.botton {
+.button {
   @include ubuntu-bold;
   background-color: $button-bg-color;
   color: $white-text-color;

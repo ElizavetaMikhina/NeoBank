@@ -41,6 +41,7 @@ export const FormInput: React.FC<FormInputProps> = ({
         type={type}
         placeholder={placeholder}
         className={inputClassName}
+        value={field.value || ''}
       />
       {touched && error ? (
         <div className={`${className}__error`}>{error}</div>

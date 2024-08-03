@@ -4,13 +4,17 @@ import { FormSelect } from '@components/shared/Form/FormSelect'
 import { Spinner } from '@components/shared/Spinner/Spinner'
 import { formFieldsApplication } from 'data/formFieldsData'
 import { Form, Formik, FormikHelpers } from 'formik'
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { validationSchemaApplication } from 'validations/validationSchemas'
+import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { FormValues, initialValues } from './applicationFormInitialValues'
+import axios from 'axios'
+import { validationSchemaApplication } from 'validations/validationSchemas'
+import { WaitMessage } from '../WaitMessage'
 
 export const ApplicationForm: React.FC = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
+  const { applicationId } = useParams<{ applicationId: string }>()
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 
   const handleSubmit = async (
     values: FormValues,
@@ -18,13 +22,31 @@ export const ApplicationForm: React.FC = () => {
   ) => {
     setSubmitting(true)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      navigate('/application/document')
+      const response = await axios.put(
+        `http://localhost:8080/application/registration/${applicationId}`,
+        values,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+
+      if (response.status !== 200) {
+        throw new Error('Failed to register application')
+      }
+
+      setIsSubmitted(true)
+      // navigate('/application/document')
     } catch (error) {
       console.error('Submission error:', error)
     } finally {
       setSubmitting(false)
     }
+  }
+
+  if (isSubmitted) {
+    return <WaitMessage />
   }
 
   return (

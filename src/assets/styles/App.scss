@@ -1167,6 +1167,27 @@ body {
   }
 }
 
+.wait-message {
+  @include flex-column;
+  height: 370px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 95px;
+  letter-spacing: $letter-spacing-slight;
+
+  &__title {
+    @include ubuntu-bold;
+    font-size: 30px;
+    line-height: 34px;
+    margin-bottom: $standard-margin-bottom;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+
 // 404_Error
 .not-found {
   @include flex-section;

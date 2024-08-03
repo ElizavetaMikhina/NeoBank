@@ -33,27 +33,53 @@ export const validationSchemaPrescoring = Yup.object({
 })
 
 export const validationSchemaApplication = Yup.object({
-  gender: Yup.string().required('Select your gender'),
-  maritalStatus: Yup.string().required('Enter your marital status'),
-  dependents: Yup.string().required('Select the number of dependents'),
-  passportDate: Yup.date()
-    .required('Enter the date of issue of the passport')
-    .typeError('Invalid date format'),
-  divisionCode: Yup.string()
-    .matches(/^\d{6}$/, 'The series must be 6 digits')
-    .required('The series must be 6 digits'),
-  employmentStatus: Yup.string().required('Select your employment status'),
+  gender: Yup.string()
+    .oneOf(['MALE', 'FEMALE'], 'Select a valid gender')
+    .required('Select your gender'),
+  maritalStatus: Yup.string()
+    .oneOf(
+      ['MARRIED', 'DIVORCED', 'SINGLE', 'WIDOW_WIDOWER'],
+      'Select a valid marital status'
+    )
+    .required('Select your marital status'),
+  dependentAmount: Yup.number()
+    .oneOf([1, 2], 'Select a valid marital status')
+    .required('Enter the number of dependents'),
+  passportIssueDate: Yup.string()
+    .matches(/^\d{4}-\d{2}-\d{2}$/, 'Invalid date format, should be YYYY-MM-DD')
+    .test('valid-date', 'Date cannot be in the future', (value) => {
+      if (!value) return false
+      const date = new Date(value)
+      return date <= new Date()
+    })
+    .required('Enter the date of issue of the passport'),
+  passportIssueBranch: Yup.string()
+    .matches(/^\d{6}$/, 'Passport issue branch must be 6 digits')
+    .required('Enter the passport issue branch'),
+  employmentStatus: Yup.string()
+    .oneOf(
+      ['UNEMPLOYED', 'SELF_EMPLOYED', 'EMPLOYED', 'BUSINESS_OWNER'],
+      'Select a valid employment status'
+    )
+    .required('Select your employment status'),
   employerINN: Yup.string()
-    .matches(/^\d{12}$/, 'Department code must be 12 digits')
+    .matches(/^\d{12}$/, 'Employer INN must be 12 digits')
     .required('Enter your employer INN'),
   salary: Yup.number()
-    .typeError('Enter a valid salary')
-    .required('Enter your salary'),
-  position: Yup.string().required('Select your position'),
-  totalExperience: Yup.number()
-    .typeError('Enter your work experience total')
-    .required('Enter your work experience total'),
-  currentExperience: Yup.number()
-    .typeError('Enter your work experience current')
-    .required('Enter your work experience current')
+    .required('Enter your salary')
+    .positive('Salary must be a positive number'),
+  position: Yup.string()
+    .oneOf(
+      ['WORKER', 'MID_MANAGER', 'TOP_MANAGER', 'OWNER'],
+      'Select a valid position'
+    )
+    .required('Select your position'),
+  workExperienceTotal: Yup.number()
+    .required('Enter your total work experience')
+    .max(99, 'Work experience total should be up to two digits')
+    .positive('Work experience must be a positive number'),
+  workExperienceCurrent: Yup.number()
+    .required('Enter your current work experience')
+    .max(99, 'Current work experience should be up to two digits')
+    .positive('Work experience must be a positive number')
 })

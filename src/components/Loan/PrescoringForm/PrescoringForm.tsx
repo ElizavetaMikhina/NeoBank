@@ -41,8 +41,6 @@ export const PrescoringForm: React.FC<PrescoringFormProps> = ({
       )
       const { applicationId } = response.data
 
-      // console.log('Received applicationId:', applicationId)
-
       dispatch(setApplicationId(applicationId))
       dispatch(setTopFourTariffs(tariffsData))
       dispatch(setCurrentStep(2))

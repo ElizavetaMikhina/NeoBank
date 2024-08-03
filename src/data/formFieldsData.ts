@@ -73,29 +73,32 @@ export const formFieldsPrescoring = [
   }
 ]
 
-export const selectFieldsApplication = {
+const selectFieldsApplication = {
   gender: [
-    { value: 'male', label: 'Male' },
-    { value: 'female', label: 'Female' }
+    { value: 'MALE', label: 'Male' },
+    { value: 'FEMALE', label: 'Female' }
   ],
   maritalStatus: [
-    { value: 'married', label: 'Married' },
-    { value: 'not married', label: 'Not married' }
+    { value: 'MARRIED', label: 'Married' },
+    { value: 'DIVORCED', label: 'Divorced' },
+    { value: 'SINGLE', label: 'Single' },
+    { value: 'WIDOW_WIDOWER', label: 'Widow/Widower' }
   ],
-  dependents: [
-    { value: 'none', label: 'None' },
-    { value: '1', label: '1' },
-    { value: '2', label: '2' }
+  dependentAmount: [
+    { value: 1, label: '1' },
+    { value: 2, label: '2' }
   ],
   employmentStatus: [
-    { value: 'employed', label: 'Employed' },
-    { value: 'self-employed', label: 'Self-employed' },
-    { value: 'unemployed', label: 'Unemployed' }
+    { value: 'UNEMPLOYED', label: 'Unemployed' },
+    { value: 'SELF_EMPLOYED', label: 'Self-employed' },
+    { value: 'EMPLOYED', label: 'Employed' },
+    { value: 'BUSINESS_OWNER', label: 'Business Owner' }
   ],
   position: [
-    { value: 'manager', label: 'Manager' },
-    { value: 'developer', label: 'Developer' },
-    { value: 'designer', label: 'Designer' }
+    { value: 'WORKER', label: 'Worker' },
+    { value: 'MID_MANAGER', label: 'Mid Manager' },
+    { value: 'TOP_MANAGER', label: 'Top Manager' },
+    { value: 'OWNER', label: 'Owner' }
   ]
 }
 
@@ -119,17 +122,17 @@ export const formFieldsApplication = [
     required: true
   },
   {
-    id: 'dependents',
-    name: 'dependents',
+    id: 'dependentAmount',
+    name: 'dependentAmount',
     label: 'Your number of dependents',
     type: 'select',
-    options: selectFieldsApplication.dependents,
+    options: selectFieldsApplication.dependentAmount,
     validationMessage: 'Select one of the options',
     required: true
   },
   {
-    id: 'passportDate',
-    name: 'passportDate',
+    id: 'passportIssueDate',
+    name: 'passportIssueDate',
     label: 'Date of issue of the passport',
     type: 'date',
     validationMessage: 'Incorrect date of passport issue date',
@@ -137,8 +140,8 @@ export const formFieldsApplication = [
     required: true
   },
   {
-    id: 'divisionCode',
-    name: 'divisionCode',
+    id: 'passportIssueBranch',
+    name: 'passportIssueBranch',
     label: 'Division code',
     type: 'text',
     validationMessage: 'The series must be 6 digits',
@@ -167,7 +170,7 @@ export const formFieldsApplication = [
     id: 'salary',
     name: 'salary',
     label: 'Your salary',
-    type: 'text',
+    type: 'number',
     validationMessage: 'Enter your salary',
     placeholder: 'Department code must be 12 digits',
     required: true
@@ -182,19 +185,19 @@ export const formFieldsApplication = [
     required: true
   },
   {
-    id: 'totalExperience',
-    name: 'totalExperience',
+    id: 'workExperienceTotal',
+    name: 'workExperienceTotal',
     label: 'Your work experience total',
-    type: 'text',
+    type: 'number',
     validationMessage: 'Enter your work experience total',
     placeholder: 'For example 10',
     required: true
   },
   {
-    id: 'currentExperience',
-    name: 'currentExperience',
+    id: 'workExperienceCurrent',
+    name: 'workExperienceCurrent',
     label: 'Your work experience current',
-    type: 'text',
+    type: 'number',
     validationMessage: 'Enter your work experience current',
     placeholder: 'For example 2',
     required: true

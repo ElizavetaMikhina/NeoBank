@@ -14,13 +14,15 @@ export const Button: React.FC<TButtonProps> = ({
   buttonText,
   className,
   onClick,
-  type
+  type = 'button',
+  disabled = false
 }) => {
   return (
     <button
       type={type}
-      className={`${className} ${styles.botton}`}
-      onClick={onClick}>
+      className={`${className} ${styles.button}`}
+      onClick={onClick}
+      disabled={disabled}>
       {buttonText}
     </button>
   )

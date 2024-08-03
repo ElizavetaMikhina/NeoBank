@@ -1,27 +1,31 @@
 export type FormValues = {
-  gender: string
-  maritalStatus: string
-  dependents: string
-  passportDate: string
-  divisionCode: string
-  employmentStatus: string
+  gender: 'MALE' | 'FAMALE'
+  maritalStatus: 'MARRIED' | 'DIVORCED' | 'SINGLE' | 'WIDOW_WIDOWER'
+  dependentAmount: number
+  passportIssueDate: string
+  passportIssueBranch: string
+  employmentStatus:
+    | 'UNEMPLOYED'
+    | 'SELF_EMPLOYED'
+    | 'EMPLOYED'
+    | 'BUSINESS_OWNER'
   employerINN: string
-  salary: string
-  position: string
-  totalExperience: string
-  currentExperience: string
+  salary: number
+  position: 'WORKER' | 'MID_MANAGER' | 'TOP_MANAGER' | 'OWNER'
+  workExperienceTotal: number
+  workExperienceCurrent: number
 }
 
 export const initialValues: FormValues = {
-  gender: 'Male',
-  maritalStatus: '',
-  dependents: 'None',
-  passportDate: '',
-  divisionCode: '',
-  employmentStatus: 'Employed',
+  gender: 'MALE',
+  maritalStatus: 'MARRIED',
+  dependentAmount: 0,
+  passportIssueDate: '',
+  passportIssueBranch: '',
+  employmentStatus: 'UNEMPLOYED',
   employerINN: '',
-  salary: '',
-  position: 'Manager',
-  totalExperience: '',
-  currentExperience: ''
+  salary: 0,
+  position: 'WORKER',
+  workExperienceTotal: 0,
+  workExperienceCurrent: 0
 }
