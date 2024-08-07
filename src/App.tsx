@@ -6,6 +6,7 @@ import { Home } from '@pages/Home'
 import { Loan } from '@pages/Loan'
 import { Application } from '@pages/Application'
 import { NotFound } from '@pages/NotFound'
+import { PaymentSchedule } from '@pages/PaymentSchedule'
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/loan" element={<Loan />} />
           <Route path="/loan/:applicationId" element={<Application />} />
+          <Route
+            path="/loan/:applicationId/document"
+            element={<PaymentSchedule />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

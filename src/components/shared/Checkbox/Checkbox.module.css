@@ -1,0 +1,13 @@
+.label {
+  display: flex;
+  align-items: center;
+  font-family: Ubuntu;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #1a202c;
+}
+
+.input {
+  margin-right: 15px;
+}/*# sourceMappingURL=Checkbox.module.css.map */

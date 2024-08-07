@@ -1,13 +1,19 @@
-export const Message = () => {
+import React from 'react'
+
+type MessageProps = {
+  data: {
+    title: string
+    description: string
+  }
+}
+
+export const Message: React.FC<MessageProps> = ({
+  data: { title, description }
+}) => {
   return (
     <section className="message">
-      <h3 className="message__title">
-        The preliminary decision has been sent to your email.
-      </h3>
-      <p className="message__description">
-        In the letter you can get acquainted with the preliminary decision on
-        the credit card.
-      </p>
+      <h3 className="message__title">{title}</h3>
+      <p className="message__description">{description}</p>
     </section>
   )
 }

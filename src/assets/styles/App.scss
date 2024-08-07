@@ -1167,24 +1167,139 @@ body {
   }
 }
 
-.wait-message {
-  @include flex-column;
-  height: 370px;
-  text-align: center;
-  justify-content: center;
-  margin-bottom: 95px;
+.payment-schedule {
+  @include element-shadow-border-radius;
+  margin-bottom: 96px;
+  padding: $standard-padding;
+  background-color: $white-background-color;
   letter-spacing: $letter-spacing-slight;
 
   &__title {
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      margin-bottom: 76px;
+    }
+
     @include ubuntu-bold;
     font-size: 30px;
-    line-height: 34px;
-    margin-bottom: $standard-margin-bottom;
+    line-height: 44px;
+    margin-right: 120px;
   }
 
   &__description {
     font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__buttons-container {
+    @include flex-section;
+  }
+
+  &__agree-container {
+    display: flex;
+  }
+
+  &__button {
+    width: 96px;
+    height: 40px;
+    padding: 11px 29px;
+    border-radius: 8px;
+
+    &.send {
+      margin-left: 40px;
+    }
+
+    &.deny {
+      background: #d93737cc;
+    }
+  }
+}
+
+.payment-table {
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 96px;
+    font-size: 12px;
     line-height: 18px;
+    margin-bottom: 44px;
+    color: #1a202c;
+
+    &__head {
+      th {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    & th:nth-child(1),
+    & td:nth-child(1) {
+      max-width: 144px;
+    }
+
+    & th:nth-child(2),
+    & td:nth-child(2) {
+      max-width: 194px;
+    }
+
+    & th:nth-child(3),
+    & td:nth-child(3) {
+      max-width: 218px;
+    }
+
+    & th:nth-child(4),
+    & td:nth-child(4) {
+      max-width: 248px;
+    }
+
+    & th:nth-child(5),
+    & td:nth-child(5) {
+      max-width: 207px;
+    }
+
+    & th:nth-child(6),
+    & td:nth-child(6) {
+      max-width: 225px;
+    }
+  }
+
+  &__row {
+    height: 40.5px;
+    display: flex;
+
+    &:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+  }
+
+  &__header-cell,
+  &__cell {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex: 1;
+  }
+
+  &__header-cell {
+    color: #4a5568;
+  }
+
+  &__sort-icon {
+    color: #222222;
+    margin-left: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
   }
 }
 

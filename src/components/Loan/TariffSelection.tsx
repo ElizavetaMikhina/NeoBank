@@ -1,7 +1,6 @@
 import React from 'react'
 import { TariffCard } from './TariffCard'
 import axios from 'axios'
-import { Message } from './Message'
 import { tariffsData } from 'data/tariffsData'
 import { Tariff } from 'types/TariffCardProps'
 import { convertTariffForApi } from '@utils/tariffUtils'
@@ -11,6 +10,8 @@ import {
   setMessageVisible,
   setTariffSelected
 } from 'store/slices/applicationSlice'
+import { Message } from './Message'
+import { preliminaryDecisionMessage } from 'data/messageData'
 
 export const TariffSelection: React.FC = () => {
   const dispatch = useDispatch()
@@ -49,7 +50,7 @@ export const TariffSelection: React.FC = () => {
   }
 
   if (isMessageVisible) {
-    return <Message />
+    return <Message data={preliminaryDecisionMessage} />
   }
 
   return (

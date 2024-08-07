@@ -9,10 +9,10 @@ import { useParams } from 'react-router-dom'
 import { FormValues, initialValues } from './applicationFormInitialValues'
 import axios from 'axios'
 import { validationSchemaApplication } from 'validations/validationSchemas'
-import { WaitMessage } from '../WaitMessage'
+import { StepsMessage } from '@components/Loan/StepsMessage/StepsMessage'
+import { applicationDecisionMessage } from 'data/stepsMessageData'
 
 export const ApplicationForm: React.FC = () => {
-  // const navigate = useNavigate()
   const { applicationId } = useParams<{ applicationId: string }>()
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 
@@ -37,7 +37,6 @@ export const ApplicationForm: React.FC = () => {
       }
 
       setIsSubmitted(true)
-      // navigate('/application/document')
     } catch (error) {
       console.error('Submission error:', error)
     } finally {
@@ -46,7 +45,7 @@ export const ApplicationForm: React.FC = () => {
   }
 
   if (isSubmitted) {
-    return <WaitMessage />
+    return <StepsMessage data={applicationDecisionMessage} />
   }
 
   return (
