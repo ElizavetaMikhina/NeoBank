@@ -16,10 +16,12 @@ import { setApplicationId, setCurrentStep } from 'store/slices/applicationSlice'
 type PrescoringFormProps = {
   // eslint-disable-next-line no-unused-vars
   setIsSubmitted: (isSubmitted: boolean) => void
+  amount: number
 }
 
 export const PrescoringForm: React.FC<PrescoringFormProps> = ({
-  setIsSubmitted
+  setIsSubmitted,
+  amount
 }) => {
   const dispatch = useDispatch()
 
@@ -32,14 +34,17 @@ export const PrescoringForm: React.FC<PrescoringFormProps> = ({
     try {
       const updatedValues = {
         ...values,
-        amount: 1000000,
+        amount: amount,
         term: Number(values.term)
       }
+      console.log('updatedValues: ', updatedValues)
       const response = await axios.post(
         'http://localhost:8080/application',
         updatedValues
       )
+      console.log('response: ', response)
       const { applicationId } = response.data
+      console.log('applicationId: ', applicationId)
 
       dispatch(setApplicationId(applicationId))
       dispatch(setTopFourTariffs(tariffsData))

@@ -24,10 +24,7 @@ export const useForm = () => {
   const subscribeToNewsletter = async () => {
     setLoading(true)
     try {
-      const response = await axios.post('http://localhost:8080/email', {
-        email
-      })
-      console.log('Server response:', response.data)
+      await axios.post('http://localhost:8080/email', { email })
       localStorage.setItem('subscribed', 'true')
       setSubmitted(true)
       setIsSubscribed(true)

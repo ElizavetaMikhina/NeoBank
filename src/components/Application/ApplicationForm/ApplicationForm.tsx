@@ -22,6 +22,8 @@ export const ApplicationForm: React.FC = () => {
   ) => {
     setSubmitting(true)
     try {
+      console.log('applicationId: ', applicationId)
+      console.log('values: ', values)
       const response = await axios.put(
         `http://localhost:8080/application/registration/${applicationId}`,
         values,

@@ -31,6 +31,13 @@ export const Prescoring: React.FC = () => {
     return <TariffSelection />
   }
 
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newAmount = parseInt(e.target.value, 10)
+    if (!isNaN(newAmount) && newAmount >= 15000 && newAmount <= 600000) {
+      setAmount(newAmount)
+    }
+  }
+
   return (
     <section id="prescoring" className="prescoring">
       <div className="prescoring__main">
@@ -54,7 +61,7 @@ export const Prescoring: React.FC = () => {
               min="15000"
               max="600000"
               value={amount}
-              onChange={(e) => setAmount(parseInt(e.target.value))}
+              onChange={handleAmountChange}
               className="prescoring__amount-input"
               style={{ '--amount': amount } as React.CSSProperties}
             />
@@ -76,6 +83,7 @@ export const Prescoring: React.FC = () => {
       </div>
 
       <PrescoringForm
+        amount={amount}
         setIsSubmitted={(submitted: boolean) => {
           if (submitted) {
             dispatch(setTariffSelected(true))

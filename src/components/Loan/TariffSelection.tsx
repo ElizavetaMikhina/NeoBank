@@ -38,6 +38,7 @@ export const TariffSelection: React.FC = () => {
     }
 
     const payload = convertTariffForApi(selectedTariff)
+    console.log('payload: ', payload)
 
     try {
       dispatch(setMessageVisible(true))
